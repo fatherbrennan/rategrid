@@ -1,19 +1,21 @@
-import { component$, useContext } from '@builder.io/qwik';
+import { $, component$, useContext } from '@builder.io/qwik';
 
+import { Input } from '~/components';
 import { AppContext } from '~/context';
 
 import type { DocumentHead } from '@builder.io/qwik-city';
+import type { PropsOf } from '~/types';
 
 export default component$(() => {
   const appStore = useContext(AppContext);
 
+  const onInput: PropsOf<'input'>['onInput$'] = $((_event, { value }) => {
+    appStore.search = value;
+  });
+
   return (
     <>
-      <h1>Hi 👋</h1>
-
-      <pre>
-        <code>{JSON.stringify(appStore, null, 2)}</code>
-      </pre>
+      <Input name="search" type="search" id="search" onInput$={onInput} />
     </>
   );
 });

@@ -19,7 +19,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <AppContextProvider>
-      <div class="h-screen w-screen overflow-hidden pb-footer pt-header">
+      <div class="bg-paper text-ink h-screen w-screen overflow-hidden pb-footer pt-header font-serif">
         <Header />
 
         <Main>

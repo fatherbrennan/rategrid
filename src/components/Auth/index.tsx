@@ -1,5 +1,6 @@
 import { $, Slot, component$, useContext, useTask$ } from '@builder.io/qwik';
 
+import { Input } from '~/components';
 import { AppContext } from '~/context';
 import { Cipher } from '~/utils/cipher';
 
@@ -26,11 +27,5 @@ export const Auth = component$(() => {
     appStore.login = value;
   });
 
-  return appStore.isAuth ? (
-    <Slot />
-  ) : (
-    <>
-      <input type="password" name="password" id="password" title="Enter the password" onInput$={onInput} />
-    </>
-  );
+  return appStore.isAuth ? <Slot /> : <Input type="password" name="password" id="password" title="Enter the password" onInput$={onInput} />;
 });
