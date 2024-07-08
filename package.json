@@ -1,0 +1,60 @@
+{
+  "name": "rategrid",
+  "description": "Display information related to films and television series in a clean way.",
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
+  "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
+  "private": true,
+  "trustedDependencies": [
+    "sharp"
+  ],
+  "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
+  "type": "module",
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "scripts": {
+    "build": "vite build -c adapters/static/vite.config.ts",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.qwik": "qwik build",
+    "build.types": "tsc --incremental --noEmit",
+    "dev": "vite --mode ssr --host",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "env": "bun run scripts/env.ts",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "prebuild": "bun run env",
+    "predev": "bun run env",
+    "preview": "qwik build preview && vite preview --open",
+    "start": "vite --open --mode ssr",
+    "test": "vitest",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "^1.5.7",
+    "@builder.io/qwik-city": "^1.5.7",
+    "@qwik-ui/headless": "^0.4.4",
+    "@qwikest/icons": "^0.0.13",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-plugin-qwik": "^1.5.7",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.6.4",
+    "tailwindcss": "^3.4.4",
+    "typescript": "5.4.5",
+    "undici": "*",
+    "vite": "^5.2.10",
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^1.6.0"
+  }
+}
