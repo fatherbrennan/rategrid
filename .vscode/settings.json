@@ -19,10 +19,13 @@
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
   "typescript.preferences.quoteStyle": "single",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
 }
