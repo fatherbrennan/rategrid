@@ -16,12 +16,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
-// TODO: Prolly not this file, but will need to use as whitelist for [api]
-// export const onStaticGenerate: StaticGenerateHandler = async () => {
-
-//   return { params:  }
-// };
-
 export default component$(() => {
   return (
     <AppContextProvider>
