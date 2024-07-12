@@ -28,7 +28,7 @@ export const Auth = component$(() => {
     }
 
     state.isAuth = false;
-    state.isLoaded = false;
+    state.isLoaded = true;
   });
 
   const onInput: QRL<PropsOf<'input'>['onInput$']> = $(async (_event, { value }) => {
