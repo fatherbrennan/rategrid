@@ -4,10 +4,13 @@
  */
 import { qwikCity } from '@builder.io/qwik-city/vite';
 import { qwikVite } from '@builder.io/qwik/optimizer';
-import { defineConfig, type UserConfig } from 'vite';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 import pkg from './package.json';
+
+import type { UserConfig } from 'vite';
 
 type PkgDep = Record<string, string>;
 
@@ -59,6 +62,11 @@ export default defineConfig(({ command, mode }): UserConfig => {
       headers: {
         // Do cache the server response in preview (non-adapter production build)
         'Cache-Control': 'public, max-age=600',
+      },
+    },
+    resolve: {
+      alias: {
+        '~': resolve(__dirname, './src'),
       },
     },
   };
