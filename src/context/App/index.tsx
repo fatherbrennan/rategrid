@@ -1,13 +1,9 @@
 import { $, Slot, component$, createContextId, useContextProvider, useOnWindow, useStore, useVisibleTask$ } from '@builder.io/qwik';
 
-import type { Env } from '~/env';
-import type { Password } from '~/utils/cipher';
-
 /**
  * Exposed object to write to local storage.
  */
 export interface AppStoreLocal {
-  password: null | Password;
   search: string;
   theme: string;
 }
@@ -16,10 +12,6 @@ export interface AppStoreLocal {
  * Exposed object.
  */
 export interface AppStore {
-  /**
-   * Exposed decrypted env variables.
-   */
-  env: Omit<typeof Env, 'PASSWORD_DIGEST'>;
   local: AppStoreLocal;
 }
 
@@ -29,8 +21,7 @@ export const AppContext = createContextId<AppStore>(appContextId);
 
 export const AppContextProvider = component$(() => {
   const store = useStore<AppStore>({
-    env: { TMDB_API_TOKEN: '' },
-    local: { password: null, search: '', theme: '' },
+    local: { search: '', theme: '' },
   });
 
   useContextProvider(AppContext, store);
@@ -50,7 +41,6 @@ export const AppContextProvider = component$(() => {
 
       // Set defaults for any missing values
       const localStore: Partial<AppStoreLocal> = JSON.parse(localStorage);
-      store.local.password = localStore.password ?? null;
       store.local.theme = localStore.theme ?? '';
       store.local.search = localStore.search ?? '';
     }),
@@ -59,7 +49,6 @@ export const AppContextProvider = component$(() => {
   // Write to local storage on update
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
-    track(() => store.local.password);
     track(() => store.local.theme);
     track(() => store.local.search);
 

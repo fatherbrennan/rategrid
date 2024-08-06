@@ -1,10 +1,10 @@
 import { UrlBuilder } from './url';
 
 import { noSerialize } from '@builder.io/qwik';
+import { TV } from '~/constants';
 
 import type { NoSerialize } from '@builder.io/qwik';
 
-import { TV } from '~/constants';
 import type { UrlBuilderQueryParams } from './url';
 
 export interface ApiRequestProps {
@@ -35,17 +35,13 @@ export interface ApiResponse<T> {
   isSuccess: boolean;
 }
 
-export interface Tmdb {
-  token: string;
-}
-
-export interface TmdbError {
+export interface GitHubError {
   status_code: number;
   status_message: string;
   success: false;
 }
 
-export interface TmdbSearchTvParams extends UrlBuilderQueryParams {
+export interface GitHubSearchTvParams extends UrlBuilderQueryParams {
   /**
    * Search string.
    */
@@ -66,7 +62,7 @@ export interface TmdbSearchTvParams extends UrlBuilderQueryParams {
   year?: number;
 }
 
-export interface TmdbSearchTvData {
+export interface GitHubSearchTvData {
   page: number;
   results: {
     /** @default true */
@@ -89,16 +85,16 @@ export interface TmdbSearchTvData {
   total_results: number;
 }
 
-export interface TmdbDetailsParams extends UrlBuilderQueryParams {
+export interface GitHubDetailsParams extends UrlBuilderQueryParams {
   /**
-   * TMDB ID.
+   * GitHub ID.
    */
   id: number;
 }
 
-export interface TmdbDetailsTvParams extends UrlBuilderQueryParams {}
+export interface GitHubDetailsTvParams extends UrlBuilderQueryParams {}
 
-export interface TmdbDetailsTvData {
+export interface GitHubDetailsTvData {
   /** @default true */
   adult: boolean;
   backdrop_path: string;
@@ -262,7 +258,7 @@ export class Api {
    * @example
    * ```ts
    * const { data, hasException, isAborted, isSuccess } = await Api.get()
-   *   .tmdb({ token: appStore.env.TMDB_API_TOKEN })
+   *   .github()
    *   .search()
    *   .tv({ query: 'The Office' });
    * ```
@@ -271,14 +267,13 @@ export class Api {
     let request = new ApiRequest({ requestInit: { method: 'GET' } });
 
     return {
-      [TV.Api.tmdb]: ({ token }: Tmdb) => {
+      [TV.Api.github]: () => {
         request = new ApiRequest(
           {
-            baseUrl: 'https://api.themoviedb.org/3',
+            baseUrl: '',
             requestInit: {
               headers: {
                 accept: 'application/json',
-                Authorization: `Bearer ${token}`,
               },
             },
           },
@@ -290,16 +285,16 @@ export class Api {
             request = new ApiRequest({ baseUrl: '/search' }, request);
 
             return {
-              tv: (params: TmdbSearchTvParams) => {
+              tv: (params: GitHubSearchTvParams) => {
                 request = new ApiRequest({ baseUrl: '/tv', params }, request);
 
-                return this.fetch<TmdbSearchTvData | TmdbError, TResponse>(request);
+                return this.fetch<GitHubSearchTvData | GitHubError, TResponse>(request);
               },
             };
           },
-          details: ({ id }: TmdbDetailsParams) => {
+          details: ({ id }: GitHubDetailsParams) => {
             return {
-              tv: (params?: TmdbDetailsTvParams) => {
+              tv: (params?: GitHubDetailsTvParams) => {
                 let nSeasons: string = '';
                 for (let i = 1; i < 21; i++) {
                   nSeasons += `season/${i},`;
@@ -309,7 +304,7 @@ export class Api {
                 const allSeasonsParams: UrlBuilderQueryParams = { append_to_response: nSeasons.slice(0, nSeasons.length) };
                 request = new ApiRequest({ baseUrl: `/tv/${id}`, ...{ ...allSeasonsParams, ...params } }, request);
 
-                return this.fetch<TmdbDetailsTvData | TmdbError, TResponse>(request);
+                return this.fetch<GitHubDetailsTvData | GitHubError, TResponse>(request);
               },
             };
           },

@@ -1,9 +1,9 @@
 const tvApi = {
-  tmdb: 'tmdb',
+  github: 'github',
 } as const;
 
 export const TV = {
   Api: tvApi,
-  Apis: [tvApi.tmdb],
-  Default: tvApi.tmdb,
+  Apis: [tvApi.github],
+  Default: tvApi.github,
 } as const;

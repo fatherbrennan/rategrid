@@ -1,6 +1,6 @@
 import { component$, Slot } from '@builder.io/qwik';
 
-import { Auth, Footer, Header, Main } from '~/components';
+import { Footer, Header, Main } from '~/components';
 import { AppContextProvider } from '~/context';
 
 import type { RequestHandler } from '@builder.io/qwik-city';
@@ -23,9 +23,7 @@ export default component$(() => {
         <Header />
 
         <Main>
-          <Auth>
-            <Slot />
-          </Auth>
+          <Slot />
         </Main>
 
         <Footer />

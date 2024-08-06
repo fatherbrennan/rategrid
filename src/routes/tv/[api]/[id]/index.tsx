@@ -1,7 +1,6 @@
 import { component$, Resource, useResource$ } from '@builder.io/qwik';
 import { useLocation, useNavigate } from '@builder.io/qwik-city';
 import { TV } from '~/constants';
-import { useAppStore } from '~/hooks/useAppStore';
 import { Api } from '~/utils/api';
 
 export default component$(() => {
@@ -9,11 +8,6 @@ export default component$(() => {
   const { api, id: sId } = params;
   const nav = useNavigate();
   const id = parseInt(sId, 10);
-  const appStore = useAppStore();
-
-  // TODO: Currently only supports up to 20 seasons
-
-  console.log(JSON.stringify(appStore.env), null, 2);
 
   // TODO: Request data from the API, if no data is returned, then redirect guard
 
@@ -23,7 +17,7 @@ export default component$(() => {
   }
 
   const tvResource = useResource$(async () => {
-    return await Api.get()[api as keyof typeof TV.Api]({ token: appStore.env.TMDB_API_TOKEN }).details({ id: id }).tv();
+    return await Api.get()[api as keyof typeof TV.Api]().details({ id }).tv();
   });
 
   return (

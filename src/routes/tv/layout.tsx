@@ -23,7 +23,7 @@ export default component$(() => {
   // TODO: Need to fetch popular shows instead if there is no search
   const tvListResource = useResource$(async ({ track }) => {
     track(() => appStore.local.search);
-    const response = await Api.get().tmdb({ token: appStore.env.TMDB_API_TOKEN }).search().tv({ query: appStore.local.search });
+    const response = await Api.get().github().search().tv({ query: appStore.local.search });
     return response;
   });
 
