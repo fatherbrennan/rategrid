@@ -1,14 +1,14 @@
-import { $, component$, Slot, useContext, useStore, useTask$ } from '@builder.io/qwik';
+import { $, component$, Slot, useStore, useTask$ } from '@builder.io/qwik';
 
-import { AppContext } from '~/context';
 import { Env } from '~/env';
+import { useAppStore } from '~/hooks/useAppStore';
 import { Cipher } from '~/utils/cipher';
 import { Input } from '../Input';
 
 import type { PropsOf, QRL } from '@builder.io/qwik';
 
 export const Auth = component$(() => {
-  const appStore = useContext(AppContext);
+  const appStore = useAppStore();
   const state = useStore({ isAuth: false, isLoaded: false });
 
   useTask$(async ({ track }) => {
@@ -35,8 +35,10 @@ export const Auth = component$(() => {
     appStore.local.password = value;
   });
 
+  // TODO: Auth page flickers when loading again?
   // `state.isLoaded && state.isAuth` causes a flicker
   // This syntax will not cause a flicker while loading
+  // TODO: Remove red class when done dev
   return state.isLoaded ? (
     state.isAuth ? (
       <Slot />
