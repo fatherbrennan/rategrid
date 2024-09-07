@@ -1,3 +1,5 @@
+import { colorMap } from './src/constants';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{ts,tsx}'],
@@ -7,8 +9,9 @@ export default {
         sketch: '255px 15px 15px 255px / 15px 225px 225px 15px',
       },
       colors: {
-        paper: '#fbfbf8',
-        ink: '#4d4d4d',
+        paper: '#f9f7f1',
+        ink: '#2f2f2f',
+        rating: colorMap,
       },
       fontFamily: {
         serif: ["'Times New Roman'", 'Times', 'serif'],
@@ -26,4 +29,5 @@ export default {
     },
   },
   plugins: [],
+  safelist: [{ pattern: /^bg-rating-[0-9]0?/ }, { pattern: /^text-(paper|ink)/ }],
 };

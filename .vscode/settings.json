@@ -29,6 +29,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
-    "qwik"
-  ],
+    "IMDb",
+    "qwik",
+    "rategrid"
+  ]
 }

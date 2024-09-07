@@ -1,10 +1,11 @@
-import { UrlBuilder } from './url';
-
 import { noSerialize } from '@builder.io/qwik';
+
 import { TV } from '~/constants';
+import { UrlBuilder } from './url';
 
 import type { NoSerialize } from '@builder.io/qwik';
 
+import type { TvSeries } from '~/types';
 import type { UrlBuilderQueryParams } from './url';
 
 export interface ApiRequestProps {
@@ -87,119 +88,14 @@ export interface GitHubSearchTvData {
 
 export interface GitHubDetailsParams extends UrlBuilderQueryParams {
   /**
-   * GitHub ID.
+   * GitHub ID (same as IMDb ID).
    */
-  id: number;
+  id: string;
 }
 
 export interface GitHubDetailsTvParams extends UrlBuilderQueryParams {}
 
-export interface GitHubDetailsTvData {
-  /** @default true */
-  adult: boolean;
-  backdrop_path: string;
-  created_by: {
-    /** @default 0 */
-    id: number;
-    credit_id: string;
-    name: string;
-    /** @default 0 */
-    gender: number;
-    profile_path: string;
-  }[];
-  episode_run_time: number[];
-  first_air_date: string;
-  genres: {
-    /** @default 0 */
-    id: number;
-    name: string;
-  }[];
-  homepage: string;
-  /** @default 0 */
-  id: number;
-  /** @default true */
-  in_production: boolean;
-  languages: string[];
-  last_air_date: string;
-  last_episode_to_air: {
-    /** @default 0 */
-    id: number;
-    name: string;
-    overview: string;
-    /** @default 0 */
-    vote_average: number;
-    /** @default 0 */
-    vote_count: number;
-    air_date: string;
-    /** @default 0 */
-    episode_number: number;
-    production_code: string;
-    /** @default 0 */
-    runtime: number;
-    /** @default 0 */
-    season_number: number;
-    /** @default 0 */
-    show_id: number;
-    still_path: string;
-  };
-  name: string;
-  next_episode_to_air: string;
-  networks: {
-    /** @default 0 */
-    id: number;
-    logo_path: string;
-    name: string;
-    origin_country: string;
-  }[];
-  /** @default 0 */
-  number_of_episodes: number;
-  /** @default 0 */
-  number_of_seasons: number;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
-  overview: string;
-  /** @default 0 */
-  popularity: number;
-  poster_path: string;
-  production_companies: {
-    /** @default 0 */
-    id: number;
-    logo_path: string;
-    name: string;
-    origin_country: string;
-  }[];
-  production_countries: {
-    iso_3166_1: string;
-    name: string;
-  }[];
-  seasons: {
-    air_date: string;
-    /** @default 0 */
-    episode_count: number;
-    /** @default 0 */
-    id: number;
-    name: string;
-    overview: string;
-    poster_path: string;
-    /** @default 0 */
-    season_number: number;
-    /** @default 0 */
-    vote_average: number;
-  }[];
-  spoken_languages: {
-    english_name: string;
-    iso_639_1: string;
-    name: string;
-  }[];
-  status: string;
-  tagline: string;
-  type: string;
-  /** @default 0 */
-  vote_average: number;
-  /** @default 0 */
-  vote_count: number;
-}
+export interface GitHubDetailsTvData extends TvSeries {}
 
 class ApiRequest {
   public baseUrl: ApiRequestProps['baseUrl'] = '';
@@ -294,17 +190,24 @@ export class Api {
           },
           details: ({ id }: GitHubDetailsParams) => {
             return {
-              tv: (params?: GitHubDetailsTvParams) => {
-                let nSeasons: string = '';
-                for (let i = 1; i < 21; i++) {
-                  nSeasons += `season/${i},`;
-                }
+              tv: () => {
+                // request = new ApiRequest({ baseUrl: `/tv/${id}` }, request);
 
-                // Always return up to 20 seasons (API's limit, and does not throw exceptions if there are less than 20)
-                const allSeasonsParams: UrlBuilderQueryParams = { append_to_response: nSeasons.slice(0, nSeasons.length) };
-                request = new ApiRequest({ baseUrl: `/tv/${id}`, ...{ ...allSeasonsParams, ...params } }, request);
+                // TODO: Dev
+                console.log(id);
 
-                return this.fetch<GitHubDetailsTvData | GitHubError, TResponse>(request);
+                // return this.fetch<GitHubDetailsTvData | GitHubError, TResponse>(request);
+
+                // TODO: Dev dummy data
+                const response: ApiResponse<GitHubDetailsTvData> = {
+                  controller: noSerialize(new AbortController()),
+                  // TODO: Dev
+                  data: null,
+                  hasException: false,
+                  isAborted: false,
+                  isSuccess: true,
+                };
+                return response;
               },
             };
           },
@@ -313,5 +216,3 @@ export class Api {
     };
   }
 }
-
-// TODO: The Office: 2316
