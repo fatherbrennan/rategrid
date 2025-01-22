@@ -7,7 +7,6 @@
   "editor.formatOnSave": true,
   "editor.inlayHints.enabled": "on",
   "editor.parameterHints.enabled": true,
-  "headwind.runOnSave": true,
   "typescript.autoClosingTags": true,
   "typescript.format.semicolons": "insert",
   "typescript.inlayHints.enumMemberValues.enabled": true,
@@ -29,7 +28,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
+    "fatherbrennan",
     "IMDb",
+    "minisearch",
     "qwik",
     "rategrid"
   ]

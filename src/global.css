@@ -6,19 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/**
-* Grid.
-*/
-.rategrid {
-  @apply border-separate border-spacing-1;
-}
-
-.rategrid > thead > tr > th,
-.rategrid > tbody > tr > td {
-  @apply h-12 w-12 text-center align-middle;
-}
-
-.rategrid > thead > tr > th,
-.rategrid > tbody > tr > td:first-child {
-  @apply font-bold;
+:root {
+  font-size: 16px;
 }
