@@ -33,6 +33,7 @@
     "minisearch",
     "qwik",
     "qwikest",
-    "rategrid"
+    "rategrid",
+    "tconst"
   ]
 }
