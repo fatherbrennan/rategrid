@@ -94,7 +94,7 @@ export function useDebounceQrl<T>(fn: UseDebounceFn<T>, options?: UseDebounceOpt
  *     console.log(value);
  *   }, { delay: 200, threshold: 5 });
  *
- *   return <input type="text" onInput$={$((_event, { value }) => debounce(value))} />
+ *   return <input type="text" onInput$={$((_event, { value }) => debounce(value))} />;
  * });
  * ```
  */

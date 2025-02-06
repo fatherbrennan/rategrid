@@ -1,10 +1,11 @@
-import { imdbDirName } from '@fatherbrennan/api/dist/imdb';
+import { TvApiDefault, TvApis } from '~/constants';
+import { withTrailingSlash } from '~/utils/url';
 
 import type { RequestHandler, StaticGenerateHandler } from '@builder.io/qwik-city';
 
 export const onStaticGenerate: StaticGenerateHandler = async () => {
   return {
-    params: [imdbDirName].map((api) => ({ api })),
+    params: TvApis.map((api) => ({ api })),
   };
 };
 
@@ -12,5 +13,6 @@ export const onStaticGenerate: StaticGenerateHandler = async () => {
  * Redirect to the use the default API.
  */
 export const onGet: RequestHandler = async ({ redirect, url }) => {
-  throw redirect(303, new URL(imdbDirName, url).toString());
+  url.pathname = withTrailingSlash(url.pathname);
+  throw redirect(303, new URL(TvApiDefault, url).toString());
 };

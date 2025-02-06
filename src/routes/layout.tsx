@@ -1,6 +1,7 @@
 import { component$, Slot } from '@builder.io/qwik';
 
 import { Footer, Header, Main } from '~/components';
+import { LocalStorageContextProvider } from '~/context';
 
 import type { RequestHandler } from '@builder.io/qwik-city';
 
@@ -17,7 +18,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export default component$(() => {
   return (
-    <>
+    <LocalStorageContextProvider>
       <Header />
 
       <Main>
@@ -25,6 +26,6 @@ export default component$(() => {
       </Main>
 
       <Footer />
-    </>
+    </LocalStorageContextProvider>
   );
 });

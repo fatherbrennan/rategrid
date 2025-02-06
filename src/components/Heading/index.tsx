@@ -1,21 +1,28 @@
 import { component$, Slot } from '@builder.io/qwik';
 
-import type { QwikAttributes } from '@builder.io/qwik';
+import { cls } from '~/utils/cls';
 
-export const headingLevels = [1, 2, 3, 4, 5, 6] as const;
+import type { AttributesOf } from '~/types';
 
-export type HeadingLevel = (typeof headingLevels)[number];
+export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
-export interface HeadingProps extends QwikAttributes<HTMLHeadingElement> {
+export interface HeadingProps extends AttributesOf<HTMLHeadingElement> {
   level: HeadingLevel;
 }
 
-export const Heading = component$<HeadingProps>(({ level, ...props }) => {
-  const HeadingTag = `h${headingLevels[level - 1]}`;
-  // TODO: Need to add default classes.
+export const Heading = component$<HeadingProps>(({ level, class: rootClass, ...props }) => {
+  const HeadingTag = `h${level}` as any;
+  const baseClass: { [headingLevel in HeadingLevel]: string } = {
+    1: 'text-3xl md:text-4xl',
+    2: 'text-2xl md:text-3xl',
+    3: 'text-xl md:text-2xl',
+    4: 'text-lg md:text-xl',
+    5: 'text-base md:text-lg',
+    6: 'text-sm md:text-base',
+  };
 
   return (
-    <HeadingTag {...props}>
+    <HeadingTag {...props} class={cls('font-bold italic', baseClass[level], rootClass)}>
       <Slot />
     </HeadingTag>
   );

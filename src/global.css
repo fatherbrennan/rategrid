@@ -9,3 +9,95 @@
 :root {
   font-size: 16px;
 }
+
+[popover] {
+  @apply text-inherit;
+}
+
+[data-combobox-root] {
+  @apply flex flex-col text-base;
+}
+
+[data-combobox-root] > label {
+  @apply sr-only;
+}
+
+[data-combobox-root] > [data-combobox-control] {
+  @apply flex flex-row flex-nowrap border-2 border-ink-0;
+}
+
+[data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
+  @apply grow pl-2 pr-1 placeholder:text-ink-1;
+}
+
+[data-combobox-root] > [data-combobox-control] > button {
+  @apply flex items-center justify-center pl-1 pr-2;
+}
+
+[data-combobox-root] > [data-combobox-control] > button,
+[data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
+  @apply border-2 border-transparent bg-paper-5 py-1;
+}
+
+[data-combobox-root] > div > [data-floating] {
+  @apply border-2 border-ink-0 bg-paper-5;
+}
+
+[data-combobox-root] > div > [data-floating] > [data-item] {
+  @apply flex flex-col px-2 py-1;
+}
+
+[data-combobox-root] > div > [data-floating] > [data-item] > span:last-child {
+  @apply text-xs text-ink-3;
+}
+
+[data-combobox-root] > div > [data-floating] > [data-item][data-highlighted] {
+  @apply bg-paper-9;
+}
+
+.rategrid {
+  @apply size-full overflow-auto overscroll-none text-xs;
+}
+
+.rategrid > table {
+  @apply border-collapse;
+}
+
+.rategrid > table > thead,
+.rategrid > table > tbody {
+  @apply relative;
+}
+
+.rategrid > table > thead > tr > th,
+.rategrid > table > tbody > tr > th,
+.rategrid > table > thead > tr > th:first-child {
+  @apply bg-paper-4;
+}
+
+.rategrid > table > thead > tr > th,
+.rategrid > table > tbody > tr > th {
+  @apply relative;
+}
+
+.rategrid > table > tbody > tr > th,
+.rategrid > table > thead > tr > th {
+  @apply sticky z-10;
+}
+
+.rategrid > table > thead > tr > th {
+  @apply top-0;
+}
+
+.rategrid > table > tbody > tr > th {
+  @apply left-0;
+}
+
+.rategrid > table > thead > tr > th:first-child {
+  @apply left-0 z-20;
+}
+
+.rategrid > table > thead > tr > th > div,
+.rategrid > table > tbody > tr > th > div,
+.rategrid > table > tbody > tr > td > div {
+  @apply flex size-8 items-center justify-center md:size-12;
+}
