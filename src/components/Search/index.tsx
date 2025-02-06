@@ -19,6 +19,7 @@ export const Search = component$(() => {
   const { api } = params;
   const comboboxRootRef = useSignal<Element>();
   const comboboxPopoverWidth = useSignal(0);
+  const isSearchReady = useSignal(false);
   const isSearchOpen = useSignal(false);
   const searchValue = useSignal('');
   const searchResults = useSignal<ImdbSearchItem[]>([]);
@@ -61,6 +62,7 @@ export const Search = component$(() => {
         const searchItem = data[i];
         tvSeriesDictionary[searchItem[TvData.tconst]] = searchItem;
       }
+      isSearchReady.value = true;
     }
   });
 
@@ -94,12 +96,18 @@ export const Search = component$(() => {
         </Combobox.Trigger>
       </Combobox.Control>
       <Combobox.Popover floating="bottom-start" style={{ width: comboboxPopoverWidth.value }}>
-        {searchResults.value.map(({ [TvData.tconst]: id, [TvData.primaryTitle]: primaryTitle, [TvData.startYear]: startYear }) => (
-          <Combobox.Item key={id} value={id}>
-            <Combobox.ItemLabel>{primaryTitle}</Combobox.ItemLabel>
-            <span>{startYear}</span>
+        {isSearchReady.value === true ? (
+          searchResults.value.map(({ [TvData.tconst]: id, [TvData.primaryTitle]: primaryTitle, [TvData.startYear]: startYear }) => (
+            <Combobox.Item key={id} value={id}>
+              <Combobox.ItemLabel>{primaryTitle}</Combobox.ItemLabel>
+              <span>{startYear}</span>
+            </Combobox.Item>
+          ))
+        ) : (
+          <Combobox.Item key="error" value="error">
+            <Combobox.ItemLabel>Error: I have nothing to search...</Combobox.ItemLabel>
           </Combobox.Item>
-        ))}
+        )}
       </Combobox.Popover>
     </Combobox.Root>
   );
