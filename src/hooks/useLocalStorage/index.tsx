@@ -1,9 +1,11 @@
 import { useContext } from '@builder.io/qwik';
 
-import { LocalStorageContextId, type LocalStorage } from '~/context';
+import { LocalStorageContextId } from '~/context';
+
+import type { LocalStorage } from '~/context';
 
 /**
- * Set debounce callback `fn` and debounce dependencies.
+ * Easy read/write to local storage.
  * @example
  * ```ts
  * component$(() => {
