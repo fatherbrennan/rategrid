@@ -1,10 +1,11 @@
-import { component$ } from '@builder.io/qwik';
+import { $, component$ } from '@builder.io/qwik';
 import { routeLoader$, useLocation } from '@builder.io/qwik-city';
 import { Api } from '@fatherbrennan/api/dist/api';
 import { TvData } from '@fatherbrennan/api/dist/imdb';
 
 import { Heading, Section } from '~/components';
 import { TvApi } from '~/constants';
+import { useAppStore } from '~/hooks/useAppStore';
 import { cls } from '~/utils/cls';
 
 import type { DocumentHead, RequestHandler } from '@builder.io/qwik-city';
@@ -37,6 +38,7 @@ export const useTvApiData = routeLoader$(async ({ params }) => {
 export default component$(() => {
   const { params } = useLocation();
   const { id } = params;
+  const app = useAppStore();
   const tvApiData = useTvApiData();
   const unknownEpisode: ImdbEpisode = {
     [TvData.tconst]: '',
@@ -55,18 +57,26 @@ export default component$(() => {
     );
   }
 
+  const setFullscreen = $(() => {
+    app.isFullscreen = true;
+  });
+
   return (
     <>
-      <Section class="gap-2">
+      <Section class="gap-y-1">
         <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
-        <div>
+        {/* <Heading level={2}>Testing this short title</Heading> */}
+        {/* <Heading level={2}>Testing this super very long title so that i can see overlap</Heading> */}
+        {/* <div class="flex grow flex-row flex-nowrap whitespace-nowrap text-xs text-ink-5"> */}
+        <div class="overflow-hidden text-ellipsis whitespace-nowrap text-xs text-ink-5">
           <span>
             {tvApiData.value[TvData.startYear]} - {tvApiData.value[TvData.endYear]}
           </span>
-          <span> | </span>
+          <span class="px-2">|</span>
           <span>{tvApiData.value[TvData.averageRating]}</span>
-          <span> | </span>
-          <span>{tvApiData.value[TvData.genres].join(', ')}</span>
+          <span class="px-2">|</span>
+          {/* <span>{tvApiData.value[TvData.genres].join(', ')}</span> */}
+          <span>{['Crime', 'Fantasy', 'Comedy', 'Romance', 'Drama', 'Animation', 'Documentary', 'Fantasy', 'Medical Drama', 'Sitcom', 'Educational'].join(', ')}</span>
         </div>
       </Section>
 
@@ -76,7 +86,9 @@ export default component$(() => {
             <thead>
               <tr>
                 <th>
-                  <div></div>
+                  <div>
+                    <button onClick$={setFullscreen}>&lt;&gt;</button>
+                  </div>
                 </th>
                 {tvApiData.value[TvData.seasonsIndex].map((season) => (
                   <th key={season}>

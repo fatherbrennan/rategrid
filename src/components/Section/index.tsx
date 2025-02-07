@@ -8,7 +8,7 @@ export interface SectionProps extends AttributesOf<HTMLElement> {}
 
 export const Section = component$<SectionProps>(({ class: rootClass, ...props }) => {
   return (
-    <section {...props} class={cls('mx-auto flex w-full max-w-screen-lg flex-col', rootClass)}>
+    <section {...props} class={cls('flex w-full flex-col', rootClass)}>
       <Slot />
     </section>
   );
