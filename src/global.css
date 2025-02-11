@@ -1,10 +1,53 @@
 /**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
+ * TailwindCSS documentation at https://tailwindcss.com.
  */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --safe-area-inset-top: env(safe-area-inset-top, 3rem);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 2rem);
+
+  --font-strict-serif: "'Times New Roman'", 'Times', 'serif';
+
+  --color-ink-0: #dedac4;
+  --color-ink-1: #cbc3a8;
+  --color-ink-2: #b7a98e;
+  --color-ink-3: #a18e76;
+  --color-ink-4: #867362;
+  --color-ink-5: #695a51;
+  --color-ink-6: #4c433f;
+  --color-ink-7: #312d2c;
+  --color-ink-8: #181716;
+  --color-ink-9: #000000;
+  --color-paper-0: #fbfcf8;
+  --color-paper-1: #fafbf6;
+  --color-paper-2: #f9faf3;
+  --color-paper-3: #f8f9f1;
+  --color-paper-4: #f7f7ef;
+  --color-paper-5: #f6f6ed;
+  --color-paper-6: #f5f5ea;
+  --color-paper-7: #f4f4e8;
+  --color-paper-8: #f2f2e6;
+  --color-paper-9: #f1f0e4;
+  --color-rating-0: #fbfcf8;
+  --color-rating-1: #e7ead3;
+  --color-rating-2: #d5d4b0;
+  --color-rating-3: #beb68f;
+  --color-rating-4: #a59571;
+  --color-rating-5: #83715b;
+  --color-rating-6: #5e5148;
+  --color-rating-7: #3c3533;
+  --color-rating-8: #1d1b1b;
+  --color-rating-9: #000000;
+
+  --spacing-safe-t: var(--safe-area-inset-top);
+  --spacing-safe-b: var(--safe-area-inset-bottom);
+  --spacing-header: calc(2rem + var(--safe-area-inset-top));
+  --spacing-footer: calc(1.5rem + var(--safe-area-inset-bottom));
+  --spacing-main: [calc(100vh - var(--spacing-header) - var(--spacing-footer)), calc(100dvh - var(--spacing-header) - var(--spacing-footer))];
+  --spacing-screen-h-full': ['100vh', '100dvh'];
+  --spacing-screen-w-full': [ '100vw', '100dvw'];
+}
 
 :root {
   font-size: 16px;
@@ -23,24 +66,24 @@
 }
 
 [data-combobox-root] > [data-combobox-control] {
-  @apply flex flex-row flex-nowrap border-2 border-ink-0;
+  @apply border-ink-0 flex flex-row flex-nowrap border-2;
 }
 
 [data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
-  @apply grow pl-2 pr-1 placeholder:text-ink-1;
+  @apply placeholder:text-ink-1 grow pr-1 pl-2;
 }
 
 [data-combobox-root] > [data-combobox-control] > button {
-  @apply flex items-center justify-center pl-1 pr-2;
+  @apply flex items-center justify-center pr-2 pl-1;
 }
 
 [data-combobox-root] > [data-combobox-control] > button,
 [data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
-  @apply border-2 border-transparent bg-paper-5 py-1;
+  @apply bg-paper-5 border-2 border-transparent py-1;
 }
 
 [data-combobox-root] > div > [data-floating] {
-  @apply border-2 border-ink-0 bg-paper-5;
+  @apply border-ink-0 bg-paper-5 border-2;
 }
 
 [data-combobox-root] > div > [data-floating] > [data-item] {
@@ -48,7 +91,7 @@
 }
 
 [data-combobox-root] > div > [data-floating] > [data-item] > span:last-child {
-  @apply text-xs text-ink-3;
+  @apply text-ink-3 text-xs;
 }
 
 [data-combobox-root] > div > [data-floating] > [data-item][data-highlighted] {
@@ -101,3 +144,8 @@
 .rategrid > table > tbody > tr > td > div {
   @apply flex size-7 items-center justify-center md:size-12;
 }
+
+/* .min-h-main {
+  min-height: calc(100vh - calc(2rem + env(safe-area-inset-top, 3rem)) - calc(1.5rem + env(safe-area-inset-bottom, 2rem)));
+  min-height: calc(100dvh - calc(2rem + env(safe-area-inset-top, 3rem)) - calc(1.5rem + env(safe-area-inset-bottom, 2rem)));
+} */

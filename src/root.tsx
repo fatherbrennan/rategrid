@@ -26,7 +26,7 @@ export default component$(() => {
 
         <RouterHead />
       </head>
-      <body lang="en" class="flex min-h-screen-h-full min-w-screen-w-full flex-col flex-nowrap overscroll-x-none bg-paper-0 font-serif text-ink-7">
+      <body lang="en" class="min-h-screen-h-full min-w-screen-w-full bg-paper-0 font-strict-serif text-ink-7 flex flex-col flex-nowrap overscroll-x-none">
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
