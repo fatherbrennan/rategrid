@@ -6,13 +6,13 @@ import { useDocumentHead, useLocation } from '@builder.io/qwik-city';
  */
 export const RouterHead = component$(() => {
   const head = useDocumentHead();
-  const loc = useLocation();
+  const location = useLocation();
 
   return (
     <>
       <title>{head.title}</title>
 
-      <link rel="canonical" href={loc.url.href} />
+      <link rel="canonical" href={location.url.href} />
 
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />

@@ -63,68 +63,66 @@ export default component$(() => {
 
   return (
     <>
-      <Section class="gap-y-1">
-        <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
-        {/* <Heading level={2}>Testing this short title</Heading> */}
-        {/* <Heading level={2}>Testing this super very long title so that i can see overlap</Heading> */}
-        {/* <div class="flex grow flex-row flex-nowrap whitespace-nowrap text-xs text-ink-5"> */}
-        <div class="overflow-hidden text-ellipsis whitespace-nowrap text-xs text-ink-5">
-          <span>
-            {tvApiData.value[TvData.startYear]} - {tvApiData.value[TvData.endYear]}
-          </span>
-          <span class="px-2">|</span>
-          <span>{tvApiData.value[TvData.averageRating]}</span>
-          <span class="px-2">|</span>
-          {/* <span>{tvApiData.value[TvData.genres].join(', ')}</span> */}
-          <span>{['Crime', 'Fantasy', 'Comedy', 'Romance', 'Drama', 'Animation', 'Documentary', 'Fantasy', 'Medical Drama', 'Sitcom', 'Educational'].join(', ')}</span>
-        </div>
-      </Section>
+      <div class="flex max-h-main min-h-main flex-col gap-y-6 overflow-hidden">
+        <Section class="gap-y-1">
+          <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
+          <div class="overflow-hidden text-ellipsis whitespace-nowrap text-xs text-ink-5">
+            <span>
+              {tvApiData.value[TvData.startYear]} - {tvApiData.value[TvData.endYear]}
+            </span>
+            <span class="px-2">|</span>
+            <span>{tvApiData.value[TvData.averageRating]}</span>
+            <span class="px-2">|</span>
+            <span>{tvApiData.value[TvData.genres].join(', ')}</span>
+          </div>
+        </Section>
 
-      <Section class="grow overflow-hidden">
-        <div class="rategrid" role="region" aria-label="ratings table" tabIndex={0}>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  <div>
-                    <button onClick$={setFullscreen}>&lt;&gt;</button>
-                  </div>
-                </th>
-                {tvApiData.value[TvData.seasonsIndex].map((season) => (
-                  <th key={season}>
-                    <div>{season}</div>
+        <Section class="grow overflow-auto">
+          <div class="rategrid" role="region" aria-label="ratings table" tabIndex={0}>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <div>
+                      <button onClick$={setFullscreen}>&lt;&gt;</button>
+                    </div>
                   </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {tvApiData.value[TvData.episodeIndex].map((episode) => {
-                return (
-                  <tr key={episode}>
-                    <th>
-                      <div>{episode}</div>
+                  {tvApiData.value[TvData.seasonsIndex].map((season) => (
+                    <th key={season}>
+                      <div>{season}</div>
                     </th>
-                    {tvApiData.value[TvData.seasonsIndex].map((season) => {
-                      const episodeDetails = tvApiData.value[TvData.episodeMap]?.[season]?.[episode] ?? unknownEpisode;
-                      const averageRatingAsInteger = ~~episodeDetails[TvData.averageRating];
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {tvApiData.value[TvData.episodeIndex].map((episode) => {
+                  return (
+                    <tr key={episode}>
+                      <th>
+                        <div>{episode}</div>
+                      </th>
+                      {tvApiData.value[TvData.seasonsIndex].map((season) => {
+                        const episodeDetails = tvApiData.value[TvData.episodeMap]?.[season]?.[episode] ?? unknownEpisode;
+                        const averageRatingAsInteger = ~~episodeDetails[TvData.averageRating];
 
-                      return (
-                        <td
-                          key={`${season}-${episode}`}
-                          class={cls(episodeDetails[TvData.averageRating] !== unknownEpisode[TvData.averageRating] && `text-white bg-rating-${averageRatingAsInteger - 1}`)}
-                          title={episodeDetails[TvData.primaryTitle]}
-                        >
-                          <div>{episodeDetails[TvData.averageRating] !== unknownEpisode[TvData.averageRating] ? episodeDetails[TvData.averageRating] : ''}</div>
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </Section>
+                        return (
+                          <td
+                            key={`${season}-${episode}`}
+                            class={cls(episodeDetails[TvData.averageRating] !== unknownEpisode[TvData.averageRating] && `text-white bg-rating-${averageRatingAsInteger - 1}`)}
+                            title={episodeDetails[TvData.primaryTitle]}
+                          >
+                            <div>{episodeDetails[TvData.averageRating] !== unknownEpisode[TvData.averageRating] ? episodeDetails[TvData.averageRating] : ''}</div>
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </Section>
+      </div>
     </>
   );
 });
