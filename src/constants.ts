@@ -10,3 +10,6 @@ export const TvApi = {
 export const TvApis = [TvApi[imdbDirName]] as const;
 
 export const TvApiDefault = TvApi[imdbDirName];
+
+/** In `px`. */
+export const SCREEN_SMALL_WIDTH = 640;
