@@ -4,6 +4,7 @@ import { SCREEN_SMALL_WIDTH } from '~/constants';
 
 export interface AppStore {
   isFullscreen: boolean;
+  /** `true` if screen width is less than `SCREEN_SMALL_WIDTH`. */
   isSmallDisplay: boolean;
 }
 

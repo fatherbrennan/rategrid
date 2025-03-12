@@ -42,11 +42,11 @@
 
   --spacing-safe-t: var(--safe-area-inset-top);
   --spacing-safe-b: var(--safe-area-inset-bottom);
+  --spacing-screen-h-full: 100dvh;
+  --spacing-screen-w-full: 100dvw;
   --spacing-header: calc(2rem + var(--safe-area-inset-top));
   --spacing-footer: calc(1.5rem + var(--safe-area-inset-bottom));
-  --spacing-main: [calc(100vh - var(--spacing-header) - var(--spacing-footer)), calc(100dvh - var(--spacing-header) - var(--spacing-footer))];
-  --spacing-screen-h-full': ['100vh', '100dvh'];
-  --spacing-screen-w-full': [ '100vw', '100dvw'];
+  --spacing-main: calc(var(--spacing-screen-h-full, 100vh) - var(--spacing-header) - var(--spacing-footer));
 }
 
 :root {
@@ -144,8 +144,3 @@
 .rategrid > table > tbody > tr > td > div {
   @apply flex size-7 items-center justify-center md:size-12;
 }
-
-/* .min-h-main {
-  min-height: calc(100vh - calc(2rem + env(safe-area-inset-top, 3rem)) - calc(1.5rem + env(safe-area-inset-bottom, 2rem)));
-  min-height: calc(100dvh - calc(2rem + env(safe-area-inset-top, 3rem)) - calc(1.5rem + env(safe-area-inset-bottom, 2rem)));
-} */
