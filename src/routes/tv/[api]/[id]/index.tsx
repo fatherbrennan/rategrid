@@ -5,7 +5,7 @@ import { TvData } from '@fatherbrennan/api/dist/imdb';
 
 import { Heading, Section } from '~/components';
 import { TvApi } from '~/constants';
-import { useAppStore } from '~/hooks/useAppStore';
+import { useAppState } from '~/hooks/useAppState';
 import { cls } from '~/utils/cls';
 
 import type { DocumentHead, RequestHandler } from '@builder.io/qwik-city';
@@ -38,7 +38,7 @@ export const useTvApiData = routeLoader$(async ({ params }) => {
 export default component$(() => {
   const { params } = useLocation();
   const { id } = params;
-  const app = useAppStore();
+  const app = useAppState();
   const tvApiData = useTvApiData();
   const unknownEpisode: ImdbEpisode = {
     [TvData.tconst]: '',
@@ -63,10 +63,10 @@ export default component$(() => {
 
   return (
     <>
-      <div class="flex max-h-main min-h-main flex-col gap-y-6 overflow-hidden">
-        <Section class="gap-y-1">
+      <Section class="grow gap-y-6">
+        <div class="gap-y-1">
           <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
-          <div class="overflow-hidden text-ellipsis whitespace-nowrap text-xs text-ink-5">
+          <div class="text-ink-5 overflow-hidden text-xs text-ellipsis whitespace-nowrap">
             <span>
               {tvApiData.value[TvData.startYear]} - {tvApiData.value[TvData.endYear]}
             </span>
@@ -75,9 +75,9 @@ export default component$(() => {
             <span class="px-2">|</span>
             <span>{tvApiData.value[TvData.genres].join(', ')}</span>
           </div>
-        </Section>
+        </div>
 
-        <Section class="grow overflow-auto">
+        <div class="grow">
           <div class="rategrid" role="region" aria-label="ratings table" tabIndex={0}>
             <table>
               <thead>
@@ -121,8 +121,8 @@ export default component$(() => {
               </tbody>
             </table>
           </div>
-        </Section>
-      </div>
+        </div>
+      </Section>
     </>
   );
 });

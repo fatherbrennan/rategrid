@@ -2,16 +2,16 @@ import { $, component$, createContextId, isDev, Slot, useContextProvider, useOnW
 
 import { SCREEN_SMALL_WIDTH } from '~/constants';
 
-export interface AppStore {
+export interface AppState {
   isFullscreen: boolean;
   /** `true` if screen width is less than `SCREEN_SMALL_WIDTH`. */
   isSmallDisplay: boolean;
 }
 
-export const AppStoreContextId = createContextId<AppStore>('rg.context.store');
+export const AppStateContextId = createContextId<AppState>('rg.context.store');
 
-export const AppStoreContextProvider = component$(() => {
-  const store = useStore<AppStore>({
+export const AppStateContextProvider = component$(() => {
+  const store = useStore<AppState>({
     isFullscreen: false,
     isSmallDisplay: true,
   });
@@ -23,7 +23,7 @@ export const AppStoreContextProvider = component$(() => {
   useOnWindow('DOMContentLoaded', checkScreenSizes);
   useOnWindow('resize', checkScreenSizes);
 
-  useContextProvider(AppStoreContextId, store);
+  useContextProvider(AppStateContextId, store);
 
   // Show eruda devtools in mobile when in development.
   useVisibleTask$(async () => {

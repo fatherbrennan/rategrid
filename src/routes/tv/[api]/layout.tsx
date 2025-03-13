@@ -1,10 +1,10 @@
 import { component$, Slot } from '@builder.io/qwik';
 
 import { Search, Section } from '~/components';
-import { useAppStore } from '~/hooks/useAppStore';
+import { useAppState } from '~/hooks/useAppState';
 
 export default component$(() => {
-  const app = useAppStore();
+  const app = useAppState();
 
   return (
     <>
