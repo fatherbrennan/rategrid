@@ -27,14 +27,16 @@ export const Search = component$(() => {
   // Trigger search conservatively.
   const { debounce } = useDebounce$<typeof searchValue.value>(
     (value) => {
-      if (value.length > 0 && window.minisearch) {
-        // Get minisearch top results.
-        searchResults.value = (window.minisearch.search(searchValue.value) as MiniSearchSearchResult[])
-          .slice(0, 10)
-          .map(({ [TvData.tconst]: tvSeriesId }) => tvSeriesDictionary[tvSeriesId])
-          .sort((a, b) => b[TvData.numVotes] - a[TvData.numVotes]);
-        isSearchOpen.value = true;
+      if (!window.minisearch) {
+        return;
       }
+
+      // Get minisearch top results.
+      searchResults.value = (window.minisearch.search(value) as MiniSearchSearchResult[])
+        .slice(0, 10)
+        .map(({ [TvData.tconst]: tvSeriesId }) => tvSeriesDictionary[tvSeriesId])
+        .sort((a, b) => b[TvData.numVotes] - a[TvData.numVotes]);
+      isSearchOpen.value = true;
     },
     { delay: 10, threshold: 1 },
   );
@@ -84,6 +86,7 @@ export const Search = component$(() => {
     typeof id === 'string' && navigate(`/tv/${api}/${id}`);
     isSearchOpen.value = false;
     searchValue.value = '';
+    searchResults.value = [];
   });
 
   return (
