@@ -66,24 +66,28 @@
 }
 
 [data-combobox-root] > [data-combobox-control] {
-  @apply border-ink-0 flex flex-row flex-nowrap border-2;
+  @apply relative flex h-9 flex-row flex-nowrap;
 }
 
 [data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
-  @apply placeholder:text-ink-1 grow pr-1 pl-2;
+  @apply placeholder:text-ink-0 border-paper-9 h-full w-full grow;
 }
 
 [data-combobox-root] > [data-combobox-control] > button {
-  @apply flex items-center justify-center pr-2 pl-1;
+  @apply absolute top-0.5 right-0.5 flex size-8 items-center justify-center border-none bg-cyan-300;
 }
 
 [data-combobox-root] > [data-combobox-control] > button,
 [data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
-  @apply bg-paper-5 border-2 border-transparent py-1;
+  @apply bg-paper-5 border-2 px-2 py-1;
+}
+
+[data-combobox-root] > [data-combobox-control] > button > svg {
+  @apply text-ink-3;
 }
 
 [data-combobox-root] > div > [data-floating] {
-  @apply border-ink-0 bg-paper-5 border-2;
+  @apply border-paper-9 bg-paper-5 border-2;
 }
 
 [data-combobox-root] > div > [data-floating] > [data-item] {
