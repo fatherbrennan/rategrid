@@ -45,8 +45,8 @@ export const Search = component$(() => {
     const { data, isSuccess } = await Api.get()[api as keyof typeof TvApi]().tv().search().fetch();
 
     // Ensure minisearch exists on window object.
-    !window.minisearch &&
-      (window.minisearch = new MiniSearch({
+    if (!window.minisearch) {
+      window.minisearch = new MiniSearch({
         idField: TvData.tconst,
         fields: [TvData.tconst, TvData.primaryTitle, TvData.startYear],
         searchOptions: {
@@ -54,7 +54,8 @@ export const Search = component$(() => {
           fuzzy: 0.2,
           prefix: true,
         },
-      }));
+      });
+    }
 
     if (isSuccess && !!data) {
       // Add data to minisearch.
@@ -74,7 +75,9 @@ export const Search = component$(() => {
   });
 
   const setPopoverWidth = $(() => {
-    comboboxRootRef.value && (comboboxPopoverWidth.value = comboboxRootRef.value.getBoundingClientRect().width);
+    if (comboboxRootRef.value) {
+      comboboxPopoverWidth.value = comboboxRootRef.value.getBoundingClientRect().width;
+    }
   });
 
   // Set the popover width when first mounted, and on any resize.
@@ -83,7 +86,10 @@ export const Search = component$(() => {
 
   const navigateToTvSeries: PropsOf<(typeof Combobox)['Root']>['onChange$'] = $((id: string | string[]) => {
     // We only expect a string, since we are not using combobox multi select.
-    typeof id === 'string' && navigate(`/tv/${api}/${id}`);
+    if (typeof id === 'string') {
+      navigate(`/tv/${api}/${id}`);
+    }
+
     isSearchOpen.value = false;
     searchValue.value = '';
     searchResults.value = [];

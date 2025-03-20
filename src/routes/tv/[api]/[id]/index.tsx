@@ -14,7 +14,7 @@ import type { ImdbEpisode } from '@fatherbrennan/api/dist/imdb';
 export const head: DocumentHead = ({ resolveValue }) => {
   const tvApiData = resolveValue(useTvApiData);
   return {
-    title: `${tvApiData === null ? ':(' : `${tvApiData?.[TvData.primaryTitle] ?? '??'} (${tvApiData?.[TvData.startYear] ?? '??'})`} | tv | rategrid`,
+    title: `${tvApiData === null ? ':(' : `${tvApiData[TvData.primaryTitle]} (${tvApiData[TvData.startYear]})`} | tv | rategrid`,
     meta: [{ name: 'description', content: 'Display information related to television series in a clean way.' }],
   };
 };
@@ -22,7 +22,7 @@ export const head: DocumentHead = ({ resolveValue }) => {
 /**
  * Redirect guard if provided with an invalid API.
  */
-export const onGet: RequestHandler = async ({ params, redirect, url }) => {
+export const onGet: RequestHandler = async ({ params, url, redirect }) => {
   const { api } = params;
   if (!(api in TvApi)) {
     throw redirect(308, new URL('/tv', url).toString());

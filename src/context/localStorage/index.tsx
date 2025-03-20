@@ -38,7 +38,7 @@ export const LocalStorageContextProvider = component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => local.theme);
     // Remove keys which are not to be written to local storage.
-    const { $isRead, ...localToWrite } = local;
+    const { $isRead: _$isRead, ...localToWrite } = local;
 
     window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(localToWrite));
   });

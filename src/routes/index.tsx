@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { Link, useNavigate } from '@builder.io/qwik-city';
+import { Link } from '@builder.io/qwik-city';
 
 import { useLocalStorage } from '~/hooks/useLocalStorage';
 
@@ -12,7 +12,6 @@ export const head: DocumentHead = {
 
 export default component$(() => {
   const local = useLocalStorage();
-  const navigate = useNavigate();
 
   return (
     <>

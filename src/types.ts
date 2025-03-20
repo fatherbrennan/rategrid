@@ -1,7 +1,5 @@
-import { TvData } from '@fatherbrennan/api/dist/imdb';
-
 import type { QwikAttributes, PropsOf as QwikPropsOf } from '@builder.io/qwik';
-import type { ImdbSearchItem } from '@fatherbrennan/api/dist/imdb';
+import type { ImdbSearchItem, TvData } from '@fatherbrennan/api/dist/imdb';
 import type MiniSearch from 'minisearch';
 import type { SearchResult } from 'minisearch';
 

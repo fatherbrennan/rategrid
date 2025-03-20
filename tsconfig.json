@@ -21,6 +21,6 @@
       "~/*": ["./src/*"]
     }
   },
-  "files": ["./.eslintrc.json"],
+  "files": ["./eslint.config.mjs"],
   "include": ["src", "./*.d.ts", "./*.config.ts"]
 }
