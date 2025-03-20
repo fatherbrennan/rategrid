@@ -45,7 +45,7 @@
   --spacing-screen-h-full: 100dvh;
   --spacing-screen-w-full: 100dvw;
   --spacing-header: calc(2rem + var(--safe-area-inset-top));
-  --spacing-footer: calc(1.5rem + var(--safe-area-inset-bottom));
+  --spacing-footer: calc(4rem + var(--safe-area-inset-bottom));
   --spacing-main: calc(var(--spacing-screen-h-full, 100vh) - var(--spacing-header) - var(--spacing-footer));
 }
 
@@ -74,7 +74,7 @@
 }
 
 [data-combobox-root] > [data-combobox-control] > button {
-  @apply absolute top-0.5 right-0.5 flex size-8 items-center justify-center border-none bg-cyan-300;
+  @apply absolute top-0.5 right-0.5 flex size-8 items-center justify-center border-none;
 }
 
 [data-combobox-root] > [data-combobox-control] > button,

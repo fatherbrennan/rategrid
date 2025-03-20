@@ -4,9 +4,7 @@ import { cls } from '~/utils/cls';
 
 import type { AttributesOf } from '~/types';
 
-export interface SectionProps extends AttributesOf<HTMLElement> {}
-
-export const Section = component$<SectionProps>(({ class: rootClass, ...props }) => {
+export const Section = component$<AttributesOf<HTMLElement>>(({ class: rootClass, ...props }) => {
   return (
     <section {...props} class={cls('flex w-full flex-col', rootClass)}>
       <Slot />
