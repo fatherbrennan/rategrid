@@ -1,4 +1,3 @@
-/* eslint-disable no-constant-binary-expression */
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { describe, expect, test } from 'vitest';
 
