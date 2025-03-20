@@ -45,7 +45,7 @@
   --spacing-screen-h-full: 100dvh;
   --spacing-screen-w-full: 100dvw;
   --spacing-header: calc(2rem + var(--safe-area-inset-top));
-  --spacing-footer: calc(4rem + var(--safe-area-inset-bottom));
+  --spacing-footer: calc(1.5rem + var(--safe-area-inset-bottom));
   --spacing-main: calc(var(--spacing-screen-h-full, 100vh) - var(--spacing-header) - var(--spacing-footer));
 }
 
@@ -152,5 +152,23 @@
 .rategrid > table > thead > tr > th > div,
 .rategrid > table > tbody > tr > th > div,
 .rategrid > table > tbody > tr > td > div {
-  @apply flex size-7 items-center justify-center md:size-12;
+  @apply flex size-8 items-center justify-center md:size-12;
+}
+
+button > svg.icon-collapse,
+button > svg.icon-expand {
+  @apply size-4 rotate-45;
+}
+
+button > svg.icon-collapse > path,
+button > svg.icon-expand > path {
+  @apply transition-transform;
+}
+
+button:hover > svg.icon-collapse > path {
+  @apply first:-translate-x-0.5 last:translate-x-0.5;
+}
+
+button:hover > svg.icon-expand > path {
+  @apply first:-translate-x-0.5 last:translate-x-0.5;
 }

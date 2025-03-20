@@ -2,6 +2,7 @@ import { $, component$ } from '@builder.io/qwik';
 import { routeLoader$, useLocation } from '@builder.io/qwik-city';
 import { Api } from '@fatherbrennan/api/dist/api';
 import { TvData } from '@fatherbrennan/api/dist/imdb';
+import { LuChevronsLeftRight, LuChevronsRightLeft } from '@qwikest/icons/lucide';
 
 import { Heading, Section } from '~/components';
 import { TvApi } from '~/constants';
@@ -57,13 +58,13 @@ export default component$(() => {
     );
   }
 
-  const setFullscreen = $(() => {
-    app.isFullscreen = true;
+  const toggleFullscreen = $(() => {
+    app.isFullscreen = !app.isFullscreen;
   });
 
   return (
     <>
-      <Section class="grow gap-y-6">
+      <Section class={cls('grow gap-y-6', app.isFullscreen && 'h-main', !app.isFullscreen && 'pb-12')}>
         <div class="gap-y-1">
           <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
           <div class="text-ink-5 overflow-hidden text-xs text-ellipsis whitespace-nowrap">
@@ -77,14 +78,20 @@ export default component$(() => {
           </div>
         </div>
 
-        <div class="grow">
+        <div class="grow overflow-auto">
           <div class="rategrid" role="region" aria-label="ratings table" tabIndex={0}>
             <table>
               <thead>
                 <tr>
                   <th>
                     <div>
-                      <button onClick$={setFullscreen}>&lt;&gt;</button>
+                      <button type="button" title={`Click to ${app.isFullscreen ? 'enter' : 'exit'} fullscreen`} onClick$={toggleFullscreen} class="cursor-pointer">
+                        {app.isFullscreen ? (
+                          <LuChevronsRightLeft class="icon-collapse" aria-label="collapse icon" />
+                        ) : (
+                          <LuChevronsLeftRight class="icon-expand" aria-label="expand icon" />
+                        )}
+                      </button>
                     </div>
                   </th>
                   {tvApiData.value[TvData.seasonsIndex].map((season) => (
