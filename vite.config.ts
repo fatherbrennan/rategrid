@@ -4,10 +4,14 @@
  */
 import { qwikCity } from '@builder.io/qwik-city/vite';
 import { qwikVite } from '@builder.io/qwik/optimizer';
-import { defineConfig, type UserConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 import pkg from './package.json';
+
+import type { UserConfig } from 'vite';
 
 type PkgDep = Record<string, string>;
 
@@ -24,7 +28,7 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
+    plugins: [qwikCity({ trailingSlash: true }), qwikVite(), tailwindcss(), tsconfigPaths()],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.
@@ -59,6 +63,11 @@ export default defineConfig(({ command, mode }): UserConfig => {
       headers: {
         // Do cache the server response in preview (non-adapter production build)
         'Cache-Control': 'public, max-age=600',
+      },
+    },
+    resolve: {
+      alias: {
+        '~': resolve(__dirname, './src'),
       },
     },
   };

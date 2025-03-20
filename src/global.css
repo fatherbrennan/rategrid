@@ -1,7 +1,174 @@
 /**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
+ * TailwindCSS documentation at https://tailwindcss.com.
  */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --safe-area-inset-top: env(safe-area-inset-top, 3rem);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 2rem);
+
+  --font-strict-serif: "'Times New Roman'", 'Times', 'serif';
+
+  --color-ink-0: #dedac4;
+  --color-ink-1: #cbc3a8;
+  --color-ink-2: #b7a98e;
+  --color-ink-3: #a18e76;
+  --color-ink-4: #867362;
+  --color-ink-5: #695a51;
+  --color-ink-6: #4c433f;
+  --color-ink-7: #312d2c;
+  --color-ink-8: #181716;
+  --color-ink-9: #000000;
+  --color-paper-0: #fbfcf8;
+  --color-paper-1: #fafbf6;
+  --color-paper-2: #f9faf3;
+  --color-paper-3: #f8f9f1;
+  --color-paper-4: #f7f7ef;
+  --color-paper-5: #f6f6ed;
+  --color-paper-6: #f5f5ea;
+  --color-paper-7: #f4f4e8;
+  --color-paper-8: #f2f2e6;
+  --color-paper-9: #f1f0e4;
+  --color-rating-0: #fbfcf8;
+  --color-rating-1: #e7ead3;
+  --color-rating-2: #d5d4b0;
+  --color-rating-3: #beb68f;
+  --color-rating-4: #a59571;
+  --color-rating-5: #83715b;
+  --color-rating-6: #5e5148;
+  --color-rating-7: #3c3533;
+  --color-rating-8: #1d1b1b;
+  --color-rating-9: #000000;
+
+  --spacing-safe-t: var(--safe-area-inset-top);
+  --spacing-safe-b: var(--safe-area-inset-bottom);
+  --spacing-screen-h-full: 100dvh;
+  --spacing-screen-w-full: 100dvw;
+  --spacing-header: calc(2rem + var(--safe-area-inset-top));
+  --spacing-footer: calc(1.5rem + var(--safe-area-inset-bottom));
+  --spacing-main: calc(var(--spacing-screen-h-full, 100vh) - var(--spacing-header) - var(--spacing-footer));
+}
+
+:root {
+  font-size: 16px;
+}
+
+[popover] {
+  @apply text-inherit;
+}
+
+[data-combobox-root] {
+  @apply flex flex-col text-base;
+}
+
+[data-combobox-root] > label {
+  @apply sr-only;
+}
+
+[data-combobox-root] > [data-combobox-control] {
+  @apply relative flex h-9 flex-row flex-nowrap;
+}
+
+[data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
+  @apply placeholder:text-ink-0 border-paper-9 h-full w-full grow;
+}
+
+[data-combobox-root] > [data-combobox-control] > button {
+  @apply absolute top-0.5 right-0.5 flex size-8 items-center justify-center border-none;
+}
+
+[data-combobox-root] > [data-combobox-control] > button,
+[data-combobox-root] > [data-combobox-control] > [data-combobox-input] {
+  @apply bg-paper-5 border-2 px-2 py-1;
+}
+
+[data-combobox-root] > [data-combobox-control] > button > svg {
+  @apply text-ink-3;
+}
+
+[data-combobox-root] > div > [data-floating] {
+  @apply border-paper-9 bg-paper-5 border-2;
+}
+
+[data-combobox-root] > div > [data-floating] > [data-item] {
+  @apply flex flex-col px-2 py-1;
+}
+
+[data-combobox-root] > div > [data-floating] > [data-item] > span:last-child {
+  @apply text-ink-3 text-xs;
+}
+
+[data-combobox-root] > div > [data-floating] > [data-item][data-highlighted] {
+  @apply bg-paper-9;
+}
+
+.rategrid {
+  @apply size-full snap-both snap-mandatory overflow-auto overscroll-none text-xs leading-none md:text-sm;
+}
+
+.rategrid > table {
+  @apply border-collapse;
+}
+
+.rategrid > table > thead,
+.rategrid > table > tbody {
+  @apply relative;
+}
+
+.rategrid > table > thead > tr > th,
+.rategrid > table > tbody > tr > th,
+.rategrid > table > tbody > tr > td {
+  @apply snap-start;
+}
+
+.rategrid > table > thead > tr > th,
+.rategrid > table > tbody > tr > th,
+.rategrid > table > thead > tr > th:first-child {
+  @apply bg-paper-4;
+}
+
+.rategrid > table > thead > tr > th,
+.rategrid > table > tbody > tr > th {
+  @apply relative;
+}
+
+.rategrid > table > tbody > tr > th,
+.rategrid > table > thead > tr > th {
+  @apply sticky z-10;
+}
+
+.rategrid > table > thead > tr > th {
+  @apply top-0;
+}
+
+.rategrid > table > tbody > tr > th {
+  @apply left-0;
+}
+
+.rategrid > table > thead > tr > th:first-child {
+  @apply left-0 z-20;
+}
+
+.rategrid > table > thead > tr > th > div,
+.rategrid > table > tbody > tr > th > div,
+.rategrid > table > tbody > tr > td > div {
+  @apply flex size-8 items-center justify-center md:size-12;
+}
+
+button > svg.icon-collapse,
+button > svg.icon-expand {
+  @apply size-4 rotate-45;
+}
+
+button > svg.icon-collapse > path,
+button > svg.icon-expand > path {
+  @apply transition-transform;
+}
+
+button:hover > svg.icon-collapse > path {
+  @apply first:-translate-x-0.5 last:translate-x-0.5;
+}
+
+button:hover > svg.icon-expand > path {
+  @apply first:-translate-x-0.5 last:translate-x-0.5;
+}
