@@ -15,7 +15,7 @@ export const head: DocumentHead = {
 export const onGet: RequestHandler = async ({ params, redirect, url }) => {
   const { api } = params;
   if (!(api in TvApi)) {
-    throw redirect(308, new URL('/tv', url).toString());
+    throw redirect(308, new URL('/rategrid/tv', url).toString());
   }
 };
 

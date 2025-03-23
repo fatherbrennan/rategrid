@@ -26,7 +26,7 @@ export const head: DocumentHead = ({ resolveValue }) => {
 export const onGet: RequestHandler = async ({ params, url, redirect }) => {
   const { api } = params;
   if (!(api in TvApi)) {
-    throw redirect(308, new URL('/tv', url).toString());
+    throw redirect(308, new URL('/rategrid/tv', url).toString());
   }
 };
 

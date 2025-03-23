@@ -1,8 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 
-import { useLocalStorage } from '~/hooks/useLocalStorage';
-
 import type { DocumentHead } from '@builder.io/qwik-city';
 
 export const head: DocumentHead = {
@@ -11,17 +9,11 @@ export const head: DocumentHead = {
 };
 
 export default component$(() => {
-  const local = useLocalStorage();
-
   return (
     <>
       <h1>Welcome &#9996;</h1>
 
-      <pre class="text-xs">{JSON.stringify(local)}</pre>
-
-      <hr />
-
-      <Link href="/tv">/tv</Link>
+      <Link href="/rategrid/tv">/tv</Link>
 
       <div class="[&>div]:flex [&>div]:size-8 [&>div]:items-center [&>div]:justify-center">
         <div class="bg-rating-0">1</div>
