@@ -87,7 +87,7 @@ export const Search = component$(() => {
   const navigateToTvSeries: PropsOf<(typeof Combobox)['Root']>['onChange$'] = $((id: string | string[]) => {
     // We only expect a string, since we are not using combobox multi select.
     if (typeof id === 'string') {
-      navigate(`/tv/${api}/${id}`);
+      navigate(`/rategrid/tv/${api}/${id}`);
     }
 
     isSearchOpen.value = false;
