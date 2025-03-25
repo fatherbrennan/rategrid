@@ -15,7 +15,7 @@ import type { UserConfig } from 'vite';
 
 type PkgDep = Record<string, string>;
 
-const { dependencies = {}, devDependencies = {} } = pkg as any as {
+const { dependencies = {}, devDependencies = {} } = pkg as unknown as {
   dependencies: PkgDep;
   devDependencies: PkgDep;
   [key: string]: unknown;
@@ -26,7 +26,7 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
  * Note that Vite normally starts from `index.html` but the qwikCity plugin makes start at `src/entry.ssr.tsx` instead.
  */
 
-export default defineConfig(({ command, mode }): UserConfig => {
+export default defineConfig((): UserConfig => {
   return {
     plugins: [qwikCity({ trailingSlash: true }), qwikVite(), tailwindcss(), tsconfigPaths()],
     // This tells Vite which dependencies to pre-build in dev mode.
