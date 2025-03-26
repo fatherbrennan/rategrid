@@ -1,0 +1,1 @@
+import{C as a}from"./q-C1vNWmP8.js";import{l as o,k as r,S as i}from"./q-WPPUufUs.js";import"./q-D3NSFh3l.js";const d=t=>o(a,{"data-indicator":!0,...t,children:o(i,null,3,"QK_0"),[r]:{"data-indicator":r}},0,"QK_1");export{d as s_Ol5gkZ4ovJc};

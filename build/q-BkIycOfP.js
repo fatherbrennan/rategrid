@@ -1,1 +1,0 @@
-import{h as n}from"./q-B07PLbO6.js";const u=()=>{const[e]=n(),l=e.numSlidesSig.value,c=e.slidesPerViewSig.value,i=e.moveSig.value,s=l-c,o=[];for(let t=0;t<=s;t+=i)o.push(t);return s%i!==0&&o.push(s),o};export{u as s_Rqyu0pROkBc};

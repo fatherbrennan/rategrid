@@ -1,1 +1,0 @@
-import{_ as e}from"./q-D8aq-jmy.js";import{a as t,q as o}from"./q-B07PLbO6.js";const r={title:"rategrid",meta:[{name:"description",content:"Display information related to films and television series in a clean way."}]},n=t(o(()=>e(()=>import("./q-uH074pMa.js"),[]),"s_d91yIPoIquw"));export{n as default,r as head};

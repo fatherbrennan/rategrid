@@ -1,0 +1,1 @@
+import{g as u}from"./q-WPPUufUs.js";import{_hW as c}from"./q-WPPUufUs.js";const a=o=>{const[t,r,e]=u();clearTimeout(e.value),e.value=Number(setTimeout(()=>r(o),t))};export{c as _hW,a as s_ZpuOr1M7lBI};
