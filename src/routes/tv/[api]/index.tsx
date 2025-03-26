@@ -27,10 +27,11 @@ export default component$(() => {
   const { url, params } = useLocation();
   const { api } = params;
   const { searchParams } = url;
-  const id = useSignal('');
+  const id = useSignal<ReturnType<URLSearchParams['get']>>(null);
   const navigate = useNavigate();
   const app = useAppState();
   const tvApiData = useSignal<ImdbTvSeriesDetails | null>(null);
+  const isFetching = useSignal(false);
   const unknownEpisode: ImdbEpisode = {
     [TvData.tconst]: '',
     [TvData.primaryTitle]: '',
@@ -47,26 +48,24 @@ export default component$(() => {
       tvApiData.value = null;
     }
 
-    id.value = searchParams.get('id') ?? '';
+    id.value = searchParams.get('id');
 
+    if (id.value === null) {
+      return;
+    }
+
+    isFetching.value = true;
     const data = (await Api.get()[api as keyof typeof TvApi]().tv().details({ id: id.value }).fetch()).data;
-    window.document.title = `${data === null ? ':(' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]})`} | tv | rategrid`;
+    window.document.title = `${data === null ? '' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]}) | `}tv | rategrid`;
     tvApiData.value = data;
+    isFetching.value = false;
   });
 
   const toggleFullscreen = $(() => {
     app.isFullscreen = !app.isFullscreen;
   });
 
-  return id.value === '' ? (
-    <>&#40;/◔ ◡ ◔&#41;/</>
-  ) : tvApiData.value === null ? (
-    <Section>
-      <p>
-        You might know <span class="bg-paper-9">{id.value}</span>, but i haven't heard of it :&#40;
-      </p>
-    </Section>
-  ) : (
+  return tvApiData.value !== null ? (
     <Section class={cls('grow gap-y-6', app.isFullscreen && 'h-main', !app.isFullscreen && 'pb-12')}>
       <div class="gap-y-1">
         <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
@@ -132,6 +131,16 @@ export default component$(() => {
           </table>
         </div>
       </div>
+    </Section>
+  ) : id.value === null ? (
+    <>&#40;/◔ ◡ ◔&#41;/</>
+  ) : isFetching.value ? (
+    <>◔_◔ ...</>
+  ) : (
+    <Section>
+      <p>
+        You might know <span class="bg-paper-9">{id.value}</span>, but i haven't heard of it :&#40;
+      </p>
     </Section>
   );
 });
