@@ -19,7 +19,7 @@ export default [
       sourceType: 'module',
       parserOptions: {
         tsconfigRootDir: '.',
-        project: ['./tsconfig.json', './vite.config.ts', './prettier.config.mjs', './tailwind.config.mjs', 'postcss.config.mjs'],
+        project: ['./tsconfig.json', './vite.config.ts', './prettier.config.mjs', './tailwind.config.mjs', 'postcss.config.mjs', './adapters/static/vite.config.ts'],
         ecmaVersion: 2021,
         sourceType: 'module',
         ecmaFeatures: {

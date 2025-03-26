@@ -1,7 +1,7 @@
 import { $, component$, useOnWindow, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { useLocation, useNavigate } from '@builder.io/qwik-city';
-import { Api } from '@fatherbrennan/api/dist/api';
-import { TvData, type ImdbSearchItem } from '@fatherbrennan/api/dist/imdb';
+import { Api, UrlBuilder } from '@fatherbrennan/api/dist/api';
+import { TvData } from '@fatherbrennan/api/dist/imdb';
 import { Combobox } from '@qwik-ui/headless';
 import { LuChevronDown } from '@qwikest/icons/lucide';
 import MiniSearch from 'minisearch';
@@ -9,6 +9,7 @@ import MiniSearch from 'minisearch';
 import { useDebounce$ } from '~/hooks/useDebounce';
 
 import type { PropsOf } from '@builder.io/qwik';
+import type { ImdbSearchItem } from '@fatherbrennan/api/dist/imdb';
 
 import type { TvApi } from '~/constants';
 import type { MiniSearchSearchResult, TvSeriesDictionary } from '~/types';
@@ -74,6 +75,14 @@ export const Search = component$(() => {
     debounce(searchValue.value);
   });
 
+  useVisibleTask$(({ track }) => {
+    track(isSearchOpen);
+
+    if (searchValue.value.length === 0) {
+      isSearchOpen.value = false;
+    }
+  });
+
   const setPopoverWidth = $(() => {
     if (comboboxRootRef.value) {
       comboboxPopoverWidth.value = comboboxRootRef.value.getBoundingClientRect().width;
@@ -87,7 +96,7 @@ export const Search = component$(() => {
   const navigateToTvSeries: PropsOf<(typeof Combobox)['Root']>['onChange$'] = $((id: string | string[]) => {
     // We only expect a string, since we are not using combobox multi select.
     if (typeof id === 'string') {
-      navigate(`/rategrid/tv/${api}/${id}`);
+      navigate(`/rategrid/tv/${api}/${UrlBuilder.query({ id })}`);
     }
 
     isSearchOpen.value = false;
@@ -106,15 +115,27 @@ export const Search = component$(() => {
       </Combobox.Control>
       <Combobox.Popover floating="bottom-start" style={{ width: comboboxPopoverWidth.value }}>
         {isSearchReady.value === true ? (
-          searchResults.value.map(({ [TvData.tconst]: id, [TvData.primaryTitle]: primaryTitle, [TvData.startYear]: startYear }) => (
-            <Combobox.Item key={id} value={id}>
-              <Combobox.ItemLabel>{primaryTitle}</Combobox.ItemLabel>
-              <span>{startYear}</span>
+          searchValue.value.length > 0 ? (
+            searchResults.value.map(({ [TvData.tconst]: id, [TvData.primaryTitle]: primaryTitle, [TvData.startYear]: startYear }) => (
+              <Combobox.Item key={id} value={id}>
+                <Combobox.ItemLabel>{primaryTitle}</Combobox.ItemLabel>
+                <span>{startYear}</span>
+              </Combobox.Item>
+            ))
+          ) : (
+            <Combobox.Item key="empty" value="empty">
+              <Combobox.ItemLabel>
+                <span class="pr-2">&#40;◔_◔&#41;</span>
+                <span>You need to give me something to search...</span>
+              </Combobox.ItemLabel>
             </Combobox.Item>
-          ))
+          )
         ) : (
           <Combobox.Item key="error" value="error">
-            <Combobox.ItemLabel>Error: I have nothing to search...</Combobox.ItemLabel>
+            <Combobox.ItemLabel>
+              <span class="pr-2">&#40;◕︵◕&#41;</span>
+              <span>I’m sorry, but I have nothing to search...</span>
+            </Combobox.ItemLabel>
           </Combobox.Item>
         )}
       </Combobox.Popover>
