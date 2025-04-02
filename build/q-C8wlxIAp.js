@@ -1,0 +1,4 @@
+import{_ as o}from"./q-CROQm7W7.js";import{c as _,t as r,u as c,x as i,q as s,i as d,k as a,j as l,l as u,S as h,g as k,_hW as j}from"./q-DkOvt7MH.js";const x=_("CheckBox.context"),S=`[data-qds-indicator][data-hidden] {
+  display: none;
+}
+`,m=S,C=Object.freeze(Object.defineProperty({__proto__:null,s_L9KjjAO8k1A:m},Symbol.toStringTag,{value:"Module"})),A=t=>{r(s(()=>o(()=>Promise.resolve().then(()=>C),void 0),"s_L9KjjAO8k1A"));const e=c(x);return i(s(()=>o(()=>Promise.resolve().then(()=>p),void 0),"s_3z79CQqzDZ8",[e])),d("div",{...t,get"data-hidden"(){return!e.value},"data-qds-indicator":!0,"aria-hidden":"true",children:u(h,null,3,"oX_0")},{"data-hidden":l(n=>!n.value,[e]),"data-qds-indicator":a,"aria-hidden":a},0,"oX_1")},b=({track:t})=>{const[e]=k();t(()=>e.value)},p=Object.freeze(Object.defineProperty({__proto__:null,_hW:j,s_3z79CQqzDZ8:b},Symbol.toStringTag,{value:"Module"}));export{x as C,b as a,A as s,m as s_L9KjjAO8k1A};
