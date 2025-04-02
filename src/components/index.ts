@@ -1,3 +1,4 @@
+export { Async } from './Async';
 export { Footer } from './Footer';
 export { Header } from './Header';
 export { Heading } from './Heading';
