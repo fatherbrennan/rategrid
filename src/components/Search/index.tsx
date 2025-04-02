@@ -37,12 +37,20 @@ export const Search = component$(() => {
         .slice(0, 10)
         .map(({ [TvData.tconst]: tvSeriesId }) => tvSeriesDictionary[tvSeriesId])
         .sort((a, b) => b[TvData.numVotes] - a[TvData.numVotes]);
-      isSearchOpen.value = true;
+
+      if (searchResults.value.length !== 0) {
+        isSearchOpen.value = true;
+      }
     },
     { delay: 10, threshold: 1 },
   );
 
   useVisibleTask$(async () => {
+    if (window.minisearch && window.minisearch.documentCount !== 0) {
+      isSearchReady.value = true;
+      return;
+    }
+
     const { data, isSuccess } = await Api.get()[api as keyof typeof TvApi]().tv().search().fetch();
 
     // Ensure minisearch exists on window object.
@@ -105,7 +113,7 @@ export const Search = component$(() => {
   });
 
   return (
-    <Combobox.Root placeholder="The Office" ref={comboboxRootRef} bind:open={isSearchOpen} autoFocus filter={false} onChange$={navigateToTvSeries}>
+    <Combobox.Root placeholder="The Office" ref={comboboxRootRef} bind:open={isSearchOpen} filter={false} onChange$={navigateToTvSeries}>
       <Combobox.Label>TV Series</Combobox.Label>
       <Combobox.Control>
         <Combobox.Input bind:value={searchValue} />
