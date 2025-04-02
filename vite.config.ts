@@ -37,7 +37,7 @@ export default defineConfig((): UserConfig => {
     },
 
     /**
-     * This is an advanced setting. It improves the bundling of your server code. To use it, make sure you understand when your consumed packages are dependencies or dev depencies. (otherwise things will break in production)
+     * This is an advanced setting. It improves the bundling of your server code. To use it, make sure you understand when your consumed packages are dependencies or dev dependencies. (otherwise things will break in production)
      */
     // ssr:
     //   command === "build" && mode === "production"
