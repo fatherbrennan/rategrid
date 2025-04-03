@@ -24,9 +24,9 @@ export const head: DocumentHead = {
 };
 
 export default component$(() => {
-  const { url, params } = useLocation();
+  const { params, url } = useLocation();
   const { api } = params;
-  const { searchParams } = url;
+  const { search } = url;
   const id = useSignal<ReturnType<URLSearchParams['get']>>(null);
   const navigate = useNavigate();
   const app = useAppState();
@@ -43,17 +43,26 @@ export default component$(() => {
 
   useVisibleTask$(async ({ track }) => {
     track(() => api);
-    track(() => searchParams);
+    track(() => search);
 
     if (!(api in TvApi)) {
-      navigate(new URL('/rategrid/tv', url).toString(), { replaceState: true });
+      navigate('/rategrid/tv/', { replaceState: true });
       tvApiData.value = null;
     }
 
-    id.value = searchParams.get('id');
+    // For whatever reason, the useLocation hook does not return the correct search params on page load.
+    const url = new URL(window.location.href);
+
+    id.value = url.searchParams.get('id');
     isPendingId.value = false;
 
     if (id.value === null) {
+      return;
+    }
+
+    if (id.value.length === 0) {
+      navigate(`/rategrid/tv/${api}/`, { replaceState: true });
+      id.value = null;
       return;
     }
 
@@ -153,7 +162,7 @@ export default component$(() => {
               ) : (
                 <Section>
                   <p>
-                    You might know <span class="bg-paper-9">{id.value}</span>, but i haven't heard of it :&#40;
+                    You might know <span class="bg-paper-9 px-2">{id.value}</span>, but i haven't heard of it :&#40;
                   </p>
                 </Section>
               )
