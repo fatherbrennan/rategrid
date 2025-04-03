@@ -28,6 +28,7 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open --host",
+    "serve": "python3 -m http.server 8080 --bind 127.0.0.1 --directory dist",
     "start": "vite --open --mode ssr",
     "test": "vitest",
     "qwik": "qwik"
