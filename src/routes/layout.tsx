@@ -1,4 +1,4 @@
-import { component$, Slot } from '@builder.io/qwik';
+import { Slot, component$ } from '@builder.io/qwik';
 
 import { Footer, Header, Main } from '~/components';
 import { AppStateContextProvider, LocalStorageContextProvider } from '~/context';

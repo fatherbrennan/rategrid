@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 /**
  * This is the base config for vite.
  * When building, the adapter config is used which loads this file and extends it.
@@ -5,7 +6,6 @@
 import { qwikCity } from '@builder.io/qwik-city/vite';
 import { qwikVite } from '@builder.io/qwik/optimizer';
 import tailwindcss from '@tailwindcss/vite';
-import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 

@@ -68,7 +68,7 @@ export default component$(() => {
 
     isFetchingTvApiData.value = true;
     const data = (await Api.get()[api as keyof typeof TvApi]().tv().details({ id: id.value }).fetch()).data;
-    window.document.title = `${data === null ? '' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]}) | `}tv | rategrid`;
+    window.document.title = `${data === null ? '' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]}) · `}tv`;
     tvApiData.value = data;
     isFetchingTvApiData.value = false;
   });
@@ -94,7 +94,7 @@ export default component$(() => {
                 <Section class={cls('grow gap-y-6', app.isFullscreen && 'h-main', !app.isFullscreen && 'pb-12')}>
                   <div class="gap-y-1">
                     <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
-                    <div class="text-ink-5 overflow-hidden text-xs text-ellipsis whitespace-nowrap">
+                    <div class="overflow-hidden text-ellipsis whitespace-nowrap text-ink-5 text-xs">
                       <span>
                         {tvApiData.value[TvData.startYear]} - {tvApiData.value[TvData.endYear]}
                       </span>
@@ -106,7 +106,7 @@ export default component$(() => {
                   </div>
 
                   <div class="grow overflow-auto">
-                    <div class="rategrid" role="region" aria-label="ratings table" tabIndex={0}>
+                    <section class="rategrid" aria-label="ratings table">
                       <table>
                         <thead>
                           <tr>
@@ -135,8 +135,8 @@ export default component$(() => {
                                 <th>
                                   <div>{episode}</div>
                                 </th>
-                                {tvApiData.value![TvData.seasonsIndex].map((season) => {
-                                  const episodeDetails = tvApiData.value![TvData.episodeMap]?.[season]?.[episode] ?? unknownEpisode;
+                                {tvApiData.value?.[TvData.seasonsIndex].map((season) => {
+                                  const episodeDetails = tvApiData.value?.[TvData.episodeMap]?.[season]?.[episode] ?? unknownEpisode;
                                   const averageRatingAsInteger = ~~episodeDetails[TvData.averageRating];
 
                                   return (
@@ -156,7 +156,7 @@ export default component$(() => {
                           })}
                         </tbody>
                       </table>
-                    </div>
+                    </section>
                   </div>
                 </Section>
               ) : (

@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import { useDocumentHead, useLocation } from '@builder.io/qwik-city';
+import { links, meta } from '@qwikdev/pwa/head';
 
 /**
  * The RouterHead component is placed inside of the document `<head>` element.
@@ -14,11 +15,11 @@ export const RouterHead = component$(() => {
 
       <link rel="canonical" href={location.url.href} />
 
-      {head.meta.map((m) => (
+      {meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}
 
-      {head.links.map((l) => (
+      {links.map((l) => (
         <link key={l.key} {...l} />
       ))}
     </>
