@@ -19,7 +19,7 @@ export const onStaticGenerate: StaticGenerateHandler = async () => {
 };
 
 export const head: DocumentHead = {
-  title: 'tv | rategrid',
+  title: 'tv',
   meta: [{ name: 'description', content: 'Display information related to television series in a clean way.' }],
 };
 
