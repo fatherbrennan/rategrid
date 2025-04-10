@@ -3,6 +3,11 @@
  */
 @import 'tailwindcss';
 
+/* Ensure all colors are included. */
+@source inline('bg-ink-{0..9}');
+@source inline('bg-paper-{0..9}');
+@source inline('bg-rating-{0..9}');
+
 @theme {
   --safe-area-inset-top: env(safe-area-inset-top, 3rem);
   --safe-area-inset-bottom: env(safe-area-inset-bottom, 2rem);
