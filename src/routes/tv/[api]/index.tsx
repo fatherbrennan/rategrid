@@ -95,13 +95,13 @@ export default component$(() => {
                   <div class="gap-y-1">
                     <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
                     <div class="overflow-hidden text-ellipsis whitespace-nowrap text-ink-5 text-xs">
-                      <span>
+                      <span title="Start and end year">
                         {tvApiData.value[TvData.startYear]} - {tvApiData.value[TvData.endYear]}
                       </span>
                       <span class="px-2">|</span>
-                      <span>{tvApiData.value[TvData.averageRating]}</span>
+                      <span title="Average rating">{tvApiData.value[TvData.averageRating]}</span>
                       <span class="px-2">|</span>
-                      <span>{tvApiData.value[TvData.genres].join(', ')}</span>
+                      <span title="Genres">{tvApiData.value[TvData.genres].join(', ')}</span>
                     </div>
                   </div>
 
@@ -112,7 +112,7 @@ export default component$(() => {
                           <tr>
                             <th>
                               <div>
-                                <button type="button" title={`Click to ${app.isFullscreen ? 'enter' : 'exit'} fullscreen`} onClick$={toggleFullscreen} class="cursor-pointer">
+                                <button type="button" title={`Click to ${app.isFullscreen ? 'exit' : 'enter'} fullscreen`} onClick$={toggleFullscreen} class="cursor-pointer">
                                   {app.isFullscreen ? (
                                     <LuChevronsRightLeft class="icon-collapse" aria-label="collapse icon" />
                                   ) : (
