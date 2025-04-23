@@ -108,7 +108,7 @@
 }
 
 .rategrid {
-  @apply size-full snap-both snap-mandatory overflow-auto overscroll-none text-xs leading-none md:text-sm;
+  @apply size-full snap-both snap-mandatory overscroll-none text-xs leading-none md:text-sm;
 }
 
 .rategrid > table {
