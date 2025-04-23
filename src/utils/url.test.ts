@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 
-import { ASSET_VERSION } from '~/constants';
-import { hasTrailingQuestionMark, v, withTrailingSlash } from './url';
+import { ASSET_VERSION, OpenGraph } from '~/constants';
+import { OpenGraphMeta, hasTrailingQuestionMark, v, withTrailingSlash } from './url';
 
 describe('url utilities', async () => {
   test('withTrailingSlash', async () => {
@@ -36,5 +36,11 @@ describe('url utilities', async () => {
     expect(v('/hello/there.svg')).toBe(`/hello/there.svg?v=${ASSET_VERSION}`);
     expect(v('hello/there.png')).toBe(`hello/there.png?v=${ASSET_VERSION}`);
     expect(v('/hello/there.png')).toBe(`/hello/there.png?v=${ASSET_VERSION}`);
+  });
+
+  test('OpenGraphMeta', async () => {
+    expect(OpenGraphMeta(OpenGraph.Type, 'image/png')).toEqual({ property: 'og:type', content: 'image/png' });
+    expect(OpenGraphMeta(OpenGraph.Title, 'Hello World!')).toEqual({ property: 'og:title', content: 'Hello World!' });
+    expect(OpenGraphMeta('description', 'Goodbye World!')).toEqual({ property: 'og:description', content: 'Goodbye World!' });
   });
 });

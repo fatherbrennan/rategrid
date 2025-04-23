@@ -5,9 +5,10 @@ import { TvData } from '@fatherbrennan/api/dist/imdb';
 import { LuChevronsLeftRight, LuChevronsRightLeft } from '@qwikest/icons/lucide';
 
 import { Async, Heading, Section } from '~/components';
-import { TvApi, TvApis } from '~/constants';
+import { META_URL_TV_PATHNAME, OpenGraph, TvApi, TvApis } from '~/constants';
 import { useAppState } from '~/hooks/useAppState';
 import { cls } from '~/utils/cls';
+import { OpenGraphMeta } from '~/utils/url';
 
 import type { DocumentHead, StaticGenerateHandler } from '@builder.io/qwik-city';
 import type { ImdbEpisode, ImdbTvSeriesDetails } from '@fatherbrennan/api/dist/imdb';
@@ -18,9 +19,12 @@ export const onStaticGenerate: StaticGenerateHandler = async () => {
   };
 };
 
+const title = META_URL_TV_PATHNAME;
+const description = 'Display information related to television series in a clean way.';
+
 export const head: DocumentHead = {
-  title: 'tv',
-  meta: [{ name: 'description', content: 'Display information related to television series in a clean way.' }],
+  title,
+  meta: [{ name: 'description', content: description }, OpenGraphMeta(OpenGraph.Title, title), OpenGraphMeta(OpenGraph.Description, description)],
 };
 
 export default component$(() => {
@@ -68,7 +72,23 @@ export default component$(() => {
 
     isFetchingTvApiData.value = true;
     const data = (await Api.get()[api as keyof typeof TvApi]().tv().details({ id: id.value }).fetch()).data;
-    window.document.title = `${data === null ? '' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]}) · `}tv`;
+
+    // Update meta tags.
+    const metaOgTitleValue = OpenGraphMeta(OpenGraph.Title, `${data === null ? '' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]}) · `}tv`);
+    window.document.title = metaOgTitleValue.content;
+    const metaOgTitle = window.document.head.querySelector<HTMLMetaElement>(`meta[property="${metaOgTitleValue.property}"]`);
+    const metaOgDescriptionValue = OpenGraphMeta(
+      OpenGraph.Description,
+      data === null ? description : `Display information about ${data[TvData.primaryTitle]} television series in a clean way.`,
+    );
+    const metaOgDescription = window.document.head.querySelector<HTMLMetaElement>(`meta[property="${metaOgDescriptionValue.property}"]`);
+    if (metaOgDescription) {
+      metaOgDescription.content = metaOgDescriptionValue.content;
+    }
+    if (metaOgTitle) {
+      metaOgTitle.content = metaOgTitleValue.content;
+    }
+
     tvApiData.value = data;
     isFetchingTvApiData.value = false;
   });
