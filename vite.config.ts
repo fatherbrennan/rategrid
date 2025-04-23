@@ -1,16 +1,11 @@
-import { resolve } from 'node:path';
-/**
- * This is the base config for vite.
- * When building, the adapter config is used which loads this file and extends it.
- */
 import { qwikCity } from '@builder.io/qwik-city/vite';
 import { qwikVite } from '@builder.io/qwik/optimizer';
 import { qwikPwa } from '@qwikdev/pwa';
 import tailwindcss from '@tailwindcss/vite';
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-import { APP_URL } from '~/constants';
 import pkg from './package.json';
 
 import type { UserConfig } from 'vite';
@@ -73,7 +68,7 @@ export default defineConfig((): UserConfig => {
         'Cache-Control': 'public, max-age=0',
       },
     },
-    base: APP_URL,
+    base: '/rategrid/',
     preview: {
       headers: {
         // Do cache the server response in preview (non-adapter production build)
