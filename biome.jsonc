@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [".cache", "**/.DS_Store", "**/*.log", "build", "bun.lockb", "dist", "node_modules", "package-lock.json", "server", "temp"]
+    "ignore": [".cache", "**/.DS_Store", "**/*.log", "build", "bun.lockb", "dist", "node_modules", "package-lock.json", "server", "temp", ".vscode/*.code-snippets"]
   },
   "organizeImports": {
     "enabled": true
