@@ -6,7 +6,7 @@ import { Combobox } from '@qwik-ui/headless';
 import { LuChevronDown } from '@qwikest/icons/lucide';
 import MiniSearch from 'minisearch';
 
-import { META_URL_TV } from '~/constants';
+import { APP_URL_TV } from '~/constants';
 import { useDebounce$ } from '~/hooks/useDebounce';
 
 import type { PropsOf } from '@builder.io/qwik';
@@ -105,7 +105,7 @@ export const Search = component$(() => {
   const navigateToTvSeries: PropsOf<(typeof Combobox)['Root']>['onChange$'] = $((id: string | string[]) => {
     // We only expect a string, since we are not using combobox multi select.
     if (typeof id === 'string') {
-      navigate(`${META_URL_TV}${api}/${UrlBuilder.query({ id })}`);
+      navigate(`${APP_URL_TV}${api}/${UrlBuilder.query({ id })}`);
     }
 
     isSearchOpen.value = false;

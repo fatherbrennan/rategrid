@@ -5,7 +5,7 @@ import { TvData } from '@fatherbrennan/api/dist/imdb';
 import { LuChevronsLeftRight, LuChevronsRightLeft } from '@qwikest/icons/lucide';
 
 import { Async, Heading, Section } from '~/components';
-import { META_URL_TV_PATHNAME, OpenGraph, TvApi, TvApis } from '~/constants';
+import { APP_URL_TV, APP_URL_TV_PARAM, OpenGraph, TvApi, TvApis } from '~/constants';
 import { useAppState } from '~/hooks/useAppState';
 import { cls } from '~/utils/cls';
 import { OpenGraphMeta } from '~/utils/url';
@@ -19,7 +19,7 @@ export const onStaticGenerate: StaticGenerateHandler = async () => {
   };
 };
 
-const title = META_URL_TV_PATHNAME;
+const title = APP_URL_TV_PARAM;
 const description = 'Display information related to television series in a clean way.';
 
 export const head: DocumentHead = {
@@ -50,7 +50,7 @@ export default component$(() => {
     track(() => search);
 
     if (!(api in TvApi)) {
-      navigate('/rategrid/tv/', { replaceState: true });
+      navigate(APP_URL_TV, { replaceState: true });
       tvApiData.value = null;
     }
 
@@ -65,7 +65,7 @@ export default component$(() => {
     }
 
     if (id.value.length === 0) {
-      navigate(`/rategrid/tv/${api}/`, { replaceState: true });
+      navigate(`${APP_URL_TV}${api}/`, { replaceState: true });
       id.value = null;
       return;
     }
@@ -126,7 +126,7 @@ export default component$(() => {
                   </div>
 
                   <div class="grow overflow-auto">
-                    <section class="rategrid" aria-label="ratings table">
+                    <section class={cls('rategrid', app.isFullscreen && 'overflow-auto')} aria-label="ratings table">
                       <table>
                         <thead>
                           <tr>

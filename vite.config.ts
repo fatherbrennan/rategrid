@@ -10,6 +10,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
+import { APP_URL } from '~/constants';
 import pkg from './package.json';
 
 import type { UserConfig } from 'vite';
@@ -72,7 +73,7 @@ export default defineConfig((): UserConfig => {
         'Cache-Control': 'public, max-age=0',
       },
     },
-    base: '/rategrid/',
+    base: APP_URL,
     preview: {
       headers: {
         // Do cache the server response in preview (non-adapter production build)

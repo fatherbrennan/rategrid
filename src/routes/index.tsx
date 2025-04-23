@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { useNavigate } from '@builder.io/qwik-city';
 
-import { APP_TITLE, META_URL_TV, META_URL_TV_PATHNAME, OpenGraph } from '~/constants';
+import { APP_TITLE, APP_URL_TV, OpenGraph } from '~/constants';
 import { OpenGraphMeta } from '~/utils/url';
 
 import type { DocumentHead } from '@builder.io/qwik-city';
@@ -22,7 +22,7 @@ export default component$(() => {
       <h1>Welcome &#9996;</h1>
 
       <ul class="[&>li]:cursor-pointer">
-        <li onClick$={() => navigate(META_URL_TV)}>/{META_URL_TV_PATHNAME}</li>
+        <li onClick$={() => navigate(APP_URL_TV)}>{APP_URL_TV}</li>
       </ul>
     </>
   );
