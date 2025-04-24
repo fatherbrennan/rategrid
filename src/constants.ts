@@ -53,3 +53,14 @@ export const OpenGraph = {
   ImageWidth: 'image:width',
   ImageHeight: 'image:height',
 } as const;
+
+export const Route = {
+  [APP_URL]: {
+    href: APP_URL,
+    label: APP_URL_BASE,
+  },
+  [APP_URL_TV]: {
+    href: APP_URL_TV,
+    label: APP_URL_TV_PARAM,
+  },
+} as const;

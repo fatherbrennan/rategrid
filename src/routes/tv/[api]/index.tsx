@@ -19,8 +19,8 @@ export const onStaticGenerate: StaticGenerateHandler = async () => {
   };
 };
 
-const title = APP_URL_TV_PARAM;
-const description = 'Display information related to television series in a clean way.';
+export const title = APP_URL_TV_PARAM;
+export const description = 'Display information related to television series in a clean way.';
 
 export const head: DocumentHead = {
   title,

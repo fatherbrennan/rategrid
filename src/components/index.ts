@@ -1,4 +1,5 @@
 export { Async } from './Async';
+export { Breadcrumb } from './Breadcrumb';
 export { Footer } from './Footer';
 export { Header } from './Header';
 export { Heading } from './Heading';

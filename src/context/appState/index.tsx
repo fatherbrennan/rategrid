@@ -2,10 +2,13 @@ import { $, Slot, component$, createContextId, isDev, useContextProvider, useOnW
 
 import { SCREEN_SMALL_WIDTH } from '~/constants';
 
+import type { Breadcrumb } from '~/types';
+
 export interface AppState {
   isFullscreen: boolean;
   /** `true` if screen width is less than `SCREEN_SMALL_WIDTH`. */
   isSmallDisplay: boolean;
+  breadcrumbs: Breadcrumb[];
 }
 
 export const AppStateContextId = createContextId<AppState>('rg.context.store');
@@ -14,6 +17,7 @@ export const AppStateContextProvider = component$(() => {
   const store = useStore<AppState>({
     isFullscreen: false,
     isSmallDisplay: true,
+    breadcrumbs: [],
   });
 
   const checkScreenSizes = $(() => {

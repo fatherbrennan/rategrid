@@ -1,6 +1,6 @@
 import { Slot, component$ } from '@builder.io/qwik';
 
-import { Footer, Header, Main } from '~/components';
+import { Breadcrumbs, Footer, Header, Main } from '~/components';
 import { AppStateContextProvider, LocalStorageContextProvider } from '~/context';
 
 import type { RequestHandler } from '@builder.io/qwik-city';
@@ -21,6 +21,8 @@ export default component$(() => {
     <LocalStorageContextProvider>
       <AppStateContextProvider>
         <Header />
+
+        <Breadcrumbs />
 
         <Main>
           <Slot />
