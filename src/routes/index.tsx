@@ -24,13 +24,13 @@ export default component$(() => {
 
   return (
     <>
-      <h1>Welcome &#9996;</h1>
-
       <nav>
         <ul class="border-2 border-paper-9 bg-paper-5">
           {navItems.map(({ label, href, title }) => (
-            <li key={href} class="cursor-pointer px-2 py-1 hover:bg-paper-9">
-              <Link {...{ href, title }}>{label}</Link>
+            <li key={href}>
+              <Link class="flex px-2 py-1 hover:bg-paper-9" {...{ href, title }}>
+                {label}
+              </Link>
             </li>
           ))}
         </ul>
