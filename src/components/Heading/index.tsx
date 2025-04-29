@@ -1,4 +1,4 @@
-import { component$, Slot } from '@builder.io/qwik';
+import { Slot, component$ } from '@builder.io/qwik';
 
 import { cls } from '~/utils/cls';
 
@@ -24,7 +24,7 @@ export const Heading = component$<HeadingProps>(({ level, class: rootClass, ...p
   };
 
   return (
-    <HeadingTag {...props} class={cls('leading-tight font-bold italic', baseClass[level], rootClass)}>
+    <HeadingTag {...props} class={cls('font-bold italic leading-tight', baseClass[level], rootClass)}>
       <Slot />
     </HeadingTag>
   );

@@ -44,7 +44,7 @@ interface UseDebounceState {
 }
 
 export function useDebounceQrl<T>(fn: UseDebounceFn<T>, options?: UseDebounceOptions): UseDebounce<T> {
-  const { delay = 300, threshold = Infinity } = options ?? {};
+  const { delay = 300, threshold = Number.POSITIVE_INFINITY } = options ?? {};
   const state = useStore<UseDebounceState>({
     timeoutId: undefined,
     debounced: 0,

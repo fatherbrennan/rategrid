@@ -1,4 +1,4 @@
-import { $, component$, createContextId, isDev, Slot, useContextProvider, useOnWindow, useStore, useVisibleTask$ } from '@builder.io/qwik';
+import { $, Slot, component$, createContextId, isDev, useContextProvider, useOnWindow, useStore, useVisibleTask$ } from '@builder.io/qwik';
 
 import { SCREEN_SMALL_WIDTH } from '~/constants';
 

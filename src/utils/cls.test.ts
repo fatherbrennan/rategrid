@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { describe, expect, test } from 'vitest';
 
 import { cls } from './cls';

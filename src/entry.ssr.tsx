@@ -13,6 +13,7 @@
 import { renderToStream } from '@builder.io/qwik/server';
 import { manifest } from '@qwik-client-manifest';
 
+import { LOCAL_LANGUAGE_CODE } from './constants';
 import Root from './root';
 
 import type { RenderToStreamOptions } from '@builder.io/qwik/server';
@@ -23,7 +24,7 @@ export default function (opts: RenderToStreamOptions) {
     ...opts,
     // Use container attributes to set attributes on the html tag.
     containerAttributes: {
-      lang: 'en-us',
+      lang: LOCAL_LANGUAGE_CODE,
       ...opts.containerAttributes,
     },
     serverData: {

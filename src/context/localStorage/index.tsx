@@ -1,4 +1,4 @@
-import { $, component$, createContextId, Slot, useContextProvider, useOnWindow, useStore, useVisibleTask$ } from '@builder.io/qwik';
+import { $, Slot, component$, createContextId, useContextProvider, useOnWindow, useStore, useVisibleTask$ } from '@builder.io/qwik';
 
 export interface LocalStorage {
   /** Local storage has been read. */

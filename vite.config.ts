@@ -1,11 +1,8 @@
-/**
- * This is the base config for vite.
- * When building, the adapter config is used which loads this file and extends it.
- */
 import { qwikCity } from '@builder.io/qwik-city/vite';
 import { qwikVite } from '@builder.io/qwik/optimizer';
+import { qwikPwa } from '@qwikdev/pwa';
 import tailwindcss from '@tailwindcss/vite';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -28,7 +25,19 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
 export default defineConfig((): UserConfig => {
   return {
-    plugins: [qwikCity({ trailingSlash: true }), qwikVite(), tailwindcss(), tsconfigPaths()],
+    plugins: [
+      qwikCity({ trailingSlash: true }),
+      qwikVite(),
+      qwikPwa({
+        includeThemeColor: false,
+        htmlPreset: '2023',
+        overrideManifestIcons: false,
+        overrideAssets: false,
+        includeHtmlHeadLinks: false,
+      }),
+      tailwindcss(),
+      tsconfigPaths(),
+    ],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.

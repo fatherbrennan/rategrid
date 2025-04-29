@@ -5,9 +5,10 @@ import { TvData } from '@fatherbrennan/api/dist/imdb';
 import { LuChevronsLeftRight, LuChevronsRightLeft } from '@qwikest/icons/lucide';
 
 import { Async, Heading, Section } from '~/components';
-import { TvApi, TvApis } from '~/constants';
+import { APP_URL_TV, APP_URL_TV_PARAM, OpenGraph, TvApi, TvApis } from '~/constants';
 import { useAppState } from '~/hooks/useAppState';
 import { cls } from '~/utils/cls';
+import { OpenGraphMeta } from '~/utils/url';
 
 import type { DocumentHead, StaticGenerateHandler } from '@builder.io/qwik-city';
 import type { ImdbEpisode, ImdbTvSeriesDetails } from '@fatherbrennan/api/dist/imdb';
@@ -18,9 +19,12 @@ export const onStaticGenerate: StaticGenerateHandler = async () => {
   };
 };
 
+export const title = APP_URL_TV_PARAM;
+export const description = 'Display information related to television series in a clean way.';
+
 export const head: DocumentHead = {
-  title: 'tv | rategrid',
-  meta: [{ name: 'description', content: 'Display information related to television series in a clean way.' }],
+  title,
+  meta: [{ name: 'description', content: description }, OpenGraphMeta(OpenGraph.Title, title), OpenGraphMeta(OpenGraph.Description, description)],
 };
 
 export default component$(() => {
@@ -46,7 +50,7 @@ export default component$(() => {
     track(() => search);
 
     if (!(api in TvApi)) {
-      navigate('/rategrid/tv/', { replaceState: true });
+      navigate(APP_URL_TV, { replaceState: true });
       tvApiData.value = null;
     }
 
@@ -61,14 +65,30 @@ export default component$(() => {
     }
 
     if (id.value.length === 0) {
-      navigate(`/rategrid/tv/${api}/`, { replaceState: true });
+      navigate(`${APP_URL_TV}${api}/`, { replaceState: true });
       id.value = null;
       return;
     }
 
     isFetchingTvApiData.value = true;
     const data = (await Api.get()[api as keyof typeof TvApi]().tv().details({ id: id.value }).fetch()).data;
-    window.document.title = `${data === null ? '' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]}) | `}tv | rategrid`;
+
+    // Update meta tags.
+    const metaOgTitleValue = OpenGraphMeta(OpenGraph.Title, `${data === null ? '' : `${data[TvData.primaryTitle]} (${data[TvData.startYear]}) · `}tv`);
+    window.document.title = metaOgTitleValue.content;
+    const metaOgTitle = window.document.head.querySelector<HTMLMetaElement>(`meta[property="${metaOgTitleValue.property}"]`);
+    const metaOgDescriptionValue = OpenGraphMeta(
+      OpenGraph.Description,
+      data === null ? description : `Display information about ${data[TvData.primaryTitle]} television series in a clean way.`,
+    );
+    const metaOgDescription = window.document.head.querySelector<HTMLMetaElement>(`meta[property="${metaOgDescriptionValue.property}"]`);
+    if (metaOgDescription) {
+      metaOgDescription.content = metaOgDescriptionValue.content;
+    }
+    if (metaOgTitle) {
+      metaOgTitle.content = metaOgTitleValue.content;
+    }
+
     tvApiData.value = data;
     isFetchingTvApiData.value = false;
   });
@@ -94,25 +114,25 @@ export default component$(() => {
                 <Section class={cls('grow gap-y-6', app.isFullscreen && 'h-main', !app.isFullscreen && 'pb-12')}>
                   <div class="gap-y-1">
                     <Heading level={2}>{tvApiData.value[TvData.primaryTitle]}</Heading>
-                    <div class="text-ink-5 overflow-hidden text-xs text-ellipsis whitespace-nowrap">
-                      <span>
+                    <div class="overflow-hidden text-ellipsis whitespace-nowrap text-ink-5 text-xs">
+                      <span title="Start and end year">
                         {tvApiData.value[TvData.startYear]} - {tvApiData.value[TvData.endYear]}
                       </span>
                       <span class="px-2">|</span>
-                      <span>{tvApiData.value[TvData.averageRating]}</span>
+                      <span title="Average rating">{tvApiData.value[TvData.averageRating]}</span>
                       <span class="px-2">|</span>
-                      <span>{tvApiData.value[TvData.genres].join(', ')}</span>
+                      <span title="Genres">{tvApiData.value[TvData.genres].join(', ')}</span>
                     </div>
                   </div>
 
                   <div class="grow overflow-auto">
-                    <div class="rategrid" role="region" aria-label="ratings table" tabIndex={0}>
+                    <section class={cls('rategrid', app.isFullscreen && 'overflow-auto')} aria-label="ratings table">
                       <table>
                         <thead>
                           <tr>
                             <th>
                               <div>
-                                <button type="button" title={`Click to ${app.isFullscreen ? 'enter' : 'exit'} fullscreen`} onClick$={toggleFullscreen} class="cursor-pointer">
+                                <button type="button" title={`Click to ${app.isFullscreen ? 'exit' : 'enter'} fullscreen`} onClick$={toggleFullscreen} class="cursor-pointer">
                                   {app.isFullscreen ? (
                                     <LuChevronsRightLeft class="icon-collapse" aria-label="collapse icon" />
                                   ) : (
@@ -135,8 +155,8 @@ export default component$(() => {
                                 <th>
                                   <div>{episode}</div>
                                 </th>
-                                {tvApiData.value![TvData.seasonsIndex].map((season) => {
-                                  const episodeDetails = tvApiData.value![TvData.episodeMap]?.[season]?.[episode] ?? unknownEpisode;
+                                {tvApiData.value?.[TvData.seasonsIndex].map((season) => {
+                                  const episodeDetails = tvApiData.value?.[TvData.episodeMap]?.[season]?.[episode] ?? unknownEpisode;
                                   const averageRatingAsInteger = ~~episodeDetails[TvData.averageRating];
 
                                   return (
@@ -156,7 +176,7 @@ export default component$(() => {
                           })}
                         </tbody>
                       </table>
-                    </div>
+                    </section>
                   </div>
                 </Section>
               ) : (
