@@ -1,0 +1,1 @@
+import{u as n}from"./q-BGn6y-sR.js";import{b as h}from"./q-BGn6y-sR.js";const f=async(c,t)=>{const[r]=n(),e=new FormData(t),o=new URLSearchParams;e.forEach((a,s)=>{typeof a=="string"&&o.append(s,a)}),await r("?"+o.toString(),{type:"form",forceReload:!0})};export{h as _hW,f as s_0goEtrhBVkY};

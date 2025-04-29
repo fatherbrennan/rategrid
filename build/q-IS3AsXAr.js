@@ -1,0 +1,1 @@
+import{u as a}from"./q-BGn6y-sR.js";import{b as u}from"./q-BGn6y-sR.js";const r=()=>{const[e,t,i]=a();t.value&&(i.value=e.startIndexSig.value!==0&&e.startIndexSig.value!==void 0&&e.currentIndexSig.value!==0)};export{u as _hW,r as s_U05ipte2f5A};

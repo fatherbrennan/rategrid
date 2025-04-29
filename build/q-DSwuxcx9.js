@@ -1,0 +1,1 @@
+import{u as c}from"./q-BGn6y-sR.js";import{b as d}from"./q-BGn6y-sR.js";const r=function({track:o}){const[n,t]=c();if(!n)return;const e=o(()=>t.value);typeof e=="number"&&e>=0&&n(e)};export{d as _hW,r as s_GSC2U4QPIow};

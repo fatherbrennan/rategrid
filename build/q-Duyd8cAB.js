@@ -1,0 +1,1 @@
+import{u as p}from"./q-BGn6y-sR.js";import{b as _}from"./q-BGn6y-sR.js";import{h as i}from"./q-BpqDzJIX.js";import{u as m}from"./q-iF8cr4uD.js";import"./q-D1R7uPAU.js";const f=a=>{const[e,o,r,s,t]=p();typeof a=="string"&&r(`${i}${o.params.api}/${m.query({id:a})}`),e.value=!1,t.value="",s.value=[]};export{_ as _hW,f as s_nyNhEhcmnD4};

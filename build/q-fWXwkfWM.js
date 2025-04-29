@@ -1,0 +1,1 @@
+import{u as n}from"./q-BGn6y-sR.js";const s=()=>{const[a,e,u,o]=n(),l=o.value??e.value,t=a.value-e.value;return u.getValueLabel?u.getValueLabel(l,a.value):`${Math.round((l-e.value)/t*100)}%`};export{s as s_0AsnYZMo5RI};

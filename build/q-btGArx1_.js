@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";import{b as c}from"./q-BGn6y-sR.js";const t=()=>{const[e]=o();e.currentIndexSig.value=(e.currentIndexSig.value+1)%e.numSlidesSig.value};export{c as _hW,t as s_ZdZHIFL3E2U};

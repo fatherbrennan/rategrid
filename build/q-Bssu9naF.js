@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as n}from"./q-BGn6y-sR.js";const p=async({track:i})=>{const[e,a,o]=s();i(()=>e.isOpenSig.value),a.value||(e.isOpenSig.value?await o.showPopover():await o.hidePopover())};export{n as _hW,p as s_Hl03GzsWt4Y};

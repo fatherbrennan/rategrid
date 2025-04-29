@@ -1,0 +1,1 @@
+import{u as n}from"./q-BGn6y-sR.js";const i=()=>{const[e]=n();if(e.valueSig.value===null)return"translateX(0%)";const a=e.maxSig.value-e.minSig.value;return`translateX(-${100-(e.valueSig.value-e.minSig.value)/a*100}%)`};export{i as s_aSH7KVscNJI};

@@ -1,1 +1,0 @@
-import{h as c,i as o,l as r,S as t}from"./q-DkOvt7MH.js";import{c as a}from"./q-CIrWlV7l.js";const _=s=>{const l=c(s,["class"]);return o("section",{...l,class:a("flex w-full flex-col",s.class),children:r(t,null,3,"Rc_0")},null,0,"Rc_1")};export{_ as s_mOg8ZW0MTAk};

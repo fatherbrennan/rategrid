@@ -1,0 +1,1 @@
+import{u as c}from"./q-BGn6y-sR.js";import{b as i}from"./q-BGn6y-sR.js";const t=()=>{const[r,o,e,s]=c();if(!e.scrollerRef.value)return;const l=0,a=-(e.scrollerRef.value[s]-e.scrollerRef.value[o]);r.value={min:a,max:l}};export{i as _hW,t as s_IgzWzsedD4Q};

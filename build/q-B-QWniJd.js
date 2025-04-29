@@ -1,0 +1,1 @@
+import{u as e}from"./q-BGn6y-sR.js";import{b as f}from"./q-BGn6y-sR.js";import{h as o,T as r}from"./q-BpqDzJIX.js";import"./q-D1R7uPAU.js";const i=()=>{const[t]=e();t(`${o}${r}/`,{replaceState:!0})};export{f as _hW,i as s_XrktnAbPpg0};

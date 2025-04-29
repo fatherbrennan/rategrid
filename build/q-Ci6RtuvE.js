@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as l}from"./q-BGn6y-sR.js";const a=()=>{const[o,e]=s(),n=o.validIndexesSig.value,i=e.currentIndexSig.value,t=n.indexOf(i);if(t===0&&e.isRewindSig.value)e.currentIndexSig.value=n[n.length-1];else{const r=Math.max(t-1,0);e.currentIndexSig.value=n[r]}};export{l as _hW,a as s_03gv5ZQQyXk};

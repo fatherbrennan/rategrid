@@ -1,0 +1,1 @@
+import{u as e}from"./q-BGn6y-sR.js";import{b as a}from"./q-BGn6y-sR.js";const t=async function(){const[o,n]=e();if(o===void 0)throw Error("Qwik UI: Dropdown component item cannot find its proper index.");n.value=o};export{a as _hW,t as s_xCuqri0fGNs};

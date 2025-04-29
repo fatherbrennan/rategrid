@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";const r=()=>{const[e]=o();if(!e.isListboxOpenSig.value&&e.mode==="popover")return"";const t=e.highlightedIndexSig.value;if(t===null||t===-1)return"";const i=e.itemsMapSig.value.get(t);return!i||i.disabled?"":`${e.localId}-${t}`};export{r as s_Gm5HKJFIr4A};

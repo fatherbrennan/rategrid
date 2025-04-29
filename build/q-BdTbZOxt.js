@@ -1,0 +1,1 @@
+import{b}from"./q-BGn6y-sR.js";const s=(t,e)=>{e.getAttribute("data-spa-reset")==="true"&&e.reset(),e.dispatchEvent(new CustomEvent("submitcompleted",{bubbles:!1,cancelable:!1,composed:!1,detail:{status:200}}))};export{b as _hW,s as s_7hHsKlGtbGM};

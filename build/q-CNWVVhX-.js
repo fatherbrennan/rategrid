@@ -1,0 +1,1 @@
+import{u as a}from"./q-BGn6y-sR.js";import{b as m}from"./q-BGn6y-sR.js";const s=()=>{const[e,o,t]=a(),l=!e.value;e.value=l,t.value=t.value.map(()=>l),o.toggleAllSelected()};export{m as _hW,s as s_4HIgEhOWtr8};

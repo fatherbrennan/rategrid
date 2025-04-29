@@ -1,0 +1,1 @@
+import{u as i}from"./q-BGn6y-sR.js";import{b as d}from"./q-BGn6y-sR.js";const u=function({track:o}){const[c,r]=i(),e=r["bind:checked"];e&&(o(()=>e.value),c.value=e.value??c.value)};export{d as _hW,u as s_GbcjUdIuN4g};

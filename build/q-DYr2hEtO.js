@@ -1,0 +1,1 @@
+import{u as i}from"./q-BGn6y-sR.js";import{b as r}from"./q-BGn6y-sR.js";const s=({track:a})=>{const[e,t,l]=i();a(()=>e.allSelected.value),!t.value&&(e.allSelected.value?l.value=!0:l.value=!1)};export{r as _hW,s as s_hUvff9MYy08};

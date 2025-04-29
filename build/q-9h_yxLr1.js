@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";import{b as v}from"./q-BGn6y-sR.js";const s=()=>{const[e,t,u,a]=o();if(!e.isRewindSig.value){if(t.value&&a.value){const l=document.activeElement;setTimeout(()=>{var i;document.activeElement===l&&u.value>=e.currentIndexSig.value&&((i=e.prevButtonRef.value)==null||i.focus())},2e3)}t.value=!1}};export{v as _hW,s as s_hl0bHTKnuH0};

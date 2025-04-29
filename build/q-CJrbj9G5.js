@@ -1,0 +1,1 @@
+import{u}from"./q-BGn6y-sR.js";import{b as c}from"./q-BGn6y-sR.js";const r=async()=>{const[l,t,a,p,i,e]=u(),o=typeof HTMLElement<"u"&&typeof HTMLElement.prototype=="object"&&"popover"in HTMLElement.prototype;return p.value=o,!a.value&&!o&&await i(),t.value||(e.value===null&&(e.value=document.getElementById(`${l}-panel`)),t.value=!0),e.value};export{c as _hW,r as s_X2UdTgDJy48};

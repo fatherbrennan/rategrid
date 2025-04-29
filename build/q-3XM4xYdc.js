@@ -1,0 +1,1 @@
+import{u as r}from"./q-BGn6y-sR.js";import{b as n}from"./q-BGn6y-sR.js";import{S as s}from"./q-BpqDzJIX.js";import"./q-D1R7uPAU.js";const m=()=>{const[o]=r();o.isSmallDisplay=window.innerWidth<=s};export{n as _hW,m as s_jDHgCAH3gDQ};

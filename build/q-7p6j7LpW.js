@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as n}from"./q-BGn6y-sR.js";const c=async e=>{const[o,t]=s();o.state.value==="open"&&e.key==="Escape"&&(e.preventDefault(),t())};export{n as _hW,c as s_Pzm0HcOzlmE};

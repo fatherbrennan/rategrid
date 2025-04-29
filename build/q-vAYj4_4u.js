@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as d}from"./q-BGn6y-sR.js";const r=({track:o,cleanup:n})=>{const[e,i]=s();o(()=>e.isListboxOpenSig.value),e.isListboxOpenSig.value&&window.addEventListener("pointerdown",i),n(()=>{window.removeEventListener("pointerdown",i)})};export{d as _hW,r as s_Ih1wAD5M8iI};

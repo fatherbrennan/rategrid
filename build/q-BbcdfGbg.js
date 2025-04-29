@@ -1,0 +1,1 @@
+import{u}from"./q-BGn6y-sR.js";import{b as c}from"./q-BGn6y-sR.js";const t=function({track:o}){const[a,r]=u(),e=a["bind:value"];e&&(o(()=>e.value),r.value=e.value)};export{c as _hW,t as s_Ldr3x03BLZo};

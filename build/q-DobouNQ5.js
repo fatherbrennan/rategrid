@@ -1,0 +1,1 @@
+import{u as i}from"./q-BGn6y-sR.js";import{b as h}from"./q-BGn6y-sR.js";const r=async({track:e})=>{var o,a;const[s]=i();e(()=>s.showSig.value),s.showSig.value?await((o=s.onShow$)==null?void 0:o.call(s)):await((a=s.onClose$)==null?void 0:a.call(s))};export{h as _hW,r as s_xINBfZnslkk};

@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as d}from"./q-BGn6y-sR.js";const p=async t=>{var o;const[a]=s();if(!((o=a.panelRef)!=null&&o.value))return;const e=a.panelRef.value;t.newState==="open"&&(delete e.dataset.closed,e.dataset.open=""),t.newState==="closed"&&(delete e.dataset.open,e.dataset.closed="")};export{d as _hW,p as s_561mDpIkM8k};

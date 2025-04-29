@@ -1,0 +1,1 @@
+import{u as a,e as s,_ as t,m as u}from"./q-BGn6y-sR.js";const c=()=>{var r;const[e,l]=a();return s(),e.multiple?t(u,null,3,"3r_0"):e.selectedIndexSetSig.value.size===0?l.placeholder:e.multiple?e.currDisplayValueSig.value:((r=e.currDisplayValueSig.value)==null?void 0:r[0])??l.placeholder};export{c as s_XtBzrZNawB0};

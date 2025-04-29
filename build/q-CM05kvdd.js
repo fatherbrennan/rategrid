@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as d}from"./q-BGn6y-sR.js";const r=({track:n,cleanup:i})=>{const[e,o]=s();n(()=>e.isOpenSig.value),e.isOpenSig.value&&window.addEventListener("pointerdown",o),i(()=>{window.removeEventListener("pointerdown",o)})};export{d as _hW,r as s_RL00XZosg3g};

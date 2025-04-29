@@ -1,0 +1,1 @@
+import{O as i,s as r,t as S,l as d,_ as g,m as h}from"./q-BGn6y-sR.js";import{m}from"./q-DvmoRwF8.js";const C=o=>{const s=i(),{"bind:show":t,closeOnBackdropClick:n,onShow$:e,onClose$:l,alert:c}=o,a=r(!1);return S(m,{localId:s,showSig:t??a,closeOnBackdropClick:n,onShow$:e,onClose$:l,alert:c}),d("div",{...o,children:g(h,null,3,"oc_0")},null,0,"oc_1")};export{C as s_ETLSRig5rD0};

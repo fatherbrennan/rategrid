@@ -1,0 +1,1 @@
+import{u as a}from"./q-BGn6y-sR.js";import{b as m}from"./q-BGn6y-sR.js";const s=function({track:o}){const[n,c,e,i]=a();o(()=>c.currentIndexSig.value);const t=window.matchMedia("(prefers-reduced-motion: reduce)");i.value=t.matches,e.value||(t.addEventListener("change",n),e.value=!0)};export{m as _hW,s as s_9jrs3CHR0N8};

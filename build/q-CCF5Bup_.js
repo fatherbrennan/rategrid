@@ -1,0 +1,1 @@
+import{u as r}from"./q-BGn6y-sR.js";import{b as c}from"./q-BGn6y-sR.js";const p=async()=>{var e;const[o,a,i,t]=r();if(await a(),!i.value)for(;!o.value;)await new Promise(s=>setTimeout(s,10));(e=t.value)==null||e.togglePopover()};export{c as _hW,p as s_YJ3hZQsC0Zw};

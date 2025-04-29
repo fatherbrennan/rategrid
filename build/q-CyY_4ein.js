@@ -1,0 +1,1 @@
+import{u as l}from"./q-BGn6y-sR.js";import{b as n}from"./q-BGn6y-sR.js";const a=({track:r})=>{const[s,i,e,u]=l();i&&(r(()=>s.value),r(()=>e.value),e.value>1?u.value=s.value/(e.value-1)*100:u.value=0)};export{n as _hW,a as s_4BVKm9yzVIw};

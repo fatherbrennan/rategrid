@@ -1,1 +1,0 @@
-import{u as r,i as e,k as u,j as s,l,S as n}from"./q-DkOvt7MH.js";import{g as d}from"./q-CkX2FGzY.js";import"./q-CV_dOpHt.js";const _=a=>{const t=r(d);return e("div",{get id(){return t.groupLabelId},"data-group-label":!0,...a,children:l(n,null,3,"0u_0")},{id:s(o=>o.groupLabelId,[t]),"data-group-label":u},0,"0u_1")};export{_ as s_aQN9SOaTwd8};

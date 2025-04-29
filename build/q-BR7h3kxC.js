@@ -1,0 +1,1 @@
+import{u as l}from"./q-BGn6y-sR.js";import{b as x}from"./q-BGn6y-sR.js";const u=function({track:t}){const[n,e,a,s]=l();if(t(()=>e.currentIndexSig.value),a.value)return;const i=n.validIndexesSig.value;s.value=i.indexOf(e.currentIndexSig.value)===i.length-1};export{x as _hW,u as s_xPxpYCmScIs};

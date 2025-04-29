@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as g}from"./q-BGn6y-sR.js";const c=async()=>{const[o,e,a,i,l]=s();a.value||l.value===null||(await o.selectionManager$(l.value,"toggle"),!i.value&&!e.multiple&&(e.isListboxOpenSig.value=!1))};export{g as _hW,c as s_g0jmIP052Jo};

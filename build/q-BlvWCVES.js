@@ -1,0 +1,1 @@
+import{u as r}from"./q-BGn6y-sR.js";import{b as p}from"./q-BGn6y-sR.js";import{b as a}from"./q-mz7J12r1.js";import"./q-A-kmwYN-.js";const m=()=>{const[o]=r(),e=window.localStorage.getItem(a);if(o.$isRead=!0,!e)return;const t=JSON.parse(e);o.theme=t.theme??o.theme};export{p as _hW,m as s_4slfTaPg4v4};

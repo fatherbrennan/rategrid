@@ -1,0 +1,1 @@
+import{_}from"./q-A-kmwYN-.js";import{N as l,l as r,x as a,_ as t,m as e,q as o}from"./q-BGn6y-sR.js";const d=s=>(l(o(()=>_(()=>import("./q-Cmc9Yv9F.js"),[]),"s_bPXAHKAeJL8")),r("span",{class:"visually-hidden",...s,children:t(e,null,3,"tT_0")},{class:a},0,"tT_1"));export{d as s_snMfxz734Ow};

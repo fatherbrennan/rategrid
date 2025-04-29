@@ -1,0 +1,1 @@
+import{b}from"./q-BGn6y-sR.js";const c=(t,f,e)=>{let r=1;const s=f.size;if(e!==void 0&&!e&&t+1>=s)return t;for(;r<s;){const n=(t+r)%s;if(!f.get(n))return n;if(r++,e!==void 0&&!e&&t+r>=s)break}return t};export{b as _hW,c as s_Vg1CIeT315s};

@@ -1,0 +1,1 @@
+import{u as x}from"./q-BGn6y-sR.js";const s=()=>{const[n,t,e]=x();if(typeof e._index!="number"||!n.validIndexesSig.value.includes(e._index))return!1;const i=t.currentIndexSig.value,d=n.validIndexesSig.value[n.validIndexesSig.value.indexOf(e._index)+1];return i>=e._index&&(d===void 0||i<d)};export{s as s_2iSZg2GYKcw};

@@ -1,0 +1,1 @@
+import{u as n}from"./q-BGn6y-sR.js";import{R as s}from"./q-D1R7uPAU.js";const u=i=>{const[r,t,o]=n();window.minisearch&&(t.value=window.minisearch.search(i).slice(0,10).map(({[s.tconst]:e})=>o[e]).sort((e,a)=>a[s.numVotes]-e[s.numVotes]),t.value.length!==0&&(r.value=!0))};export{u as s_02m08ECFatQ};

@@ -1,0 +1,1 @@
+import{u as n}from"./q-BGn6y-sR.js";import{b as l}from"./q-BGn6y-sR.js";const s=async i=>{const[e]=n();if(e.mode==="inline"||e.isListboxOpenSig.value){const t=e.highlightedIndexSig.value??-1;e.highlightedIndexSig.value=await i(t)}else e.isListboxOpenSig.value=!0};export{l as _hW,s as s_H8X60SjkMqc};

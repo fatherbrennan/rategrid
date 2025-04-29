@@ -1,0 +1,1 @@
+import{u as i}from"./q-BGn6y-sR.js";const u=()=>{var o,t;const[s]=i();return{mouse:((o=s.sensitivity)==null?void 0:o.mouse)??1.5,touch:((t=s.sensitivity)==null?void 0:t.touch)??1.25}};export{u as s_iuil8xMdIX4};

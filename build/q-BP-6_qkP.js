@@ -1,0 +1,1 @@
+import{u as l}from"./q-BGn6y-sR.js";import{b as p}from"./q-BGn6y-sR.js";const c=()=>{const[e,t,o]=l();if(!e.scrollerRef.value)return;const s={x:r=>`${r}px, 0, 0`,y:r=>`0, ${r}px, 0`},a=o.value[t];e.scrollerRef.value.style.transform=`translate3d(${s[t](a)})`};export{p as _hW,c as s_R5XztXNurWs};

@@ -1,0 +1,1 @@
+import{u as i}from"./q-BGn6y-sR.js";import{b as v}from"./q-BGn6y-sR.js";const t=({track:a})=>{const[l,o,e,r]=i();a(()=>e.value),l.triggerRefsArray.value[e.value]=r,a(()=>o.value),o.value&&(l.selectedIndexSig.value=e.value)};export{v as _hW,t as s_YrNvfPo6Ggk};

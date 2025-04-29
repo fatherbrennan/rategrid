@@ -1,0 +1,1 @@
+import{u as n}from"./q-BGn6y-sR.js";import{b as x}from"./q-BGn6y-sR.js";const f=async()=>{var o,t;const[a,l,c,s,e]=n();c||s.value===null||((o=e.onItemSelect)==null||o.call(e),a&&(l.isOpenSig.value=!1,(t=l.triggerRef.value)==null||t.focus()))};export{x as _hW,f as s_gSINlAaxwfY};

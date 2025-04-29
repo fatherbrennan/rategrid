@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as u}from"./q-BGn6y-sR.js";const r=async()=>{var t;const[e,a,o,l]=s();o.disabled||a.value===null||(e.multiple?(await l.selectionManager$(a.value,"toggle"),(t=e.triggerRef.value)==null||t.focus()):(await l.selectionManager$(a.value,"add"),e.isListboxOpenSig.value=!1))};export{u as _hW,r as s_c9mBDmoztrw};

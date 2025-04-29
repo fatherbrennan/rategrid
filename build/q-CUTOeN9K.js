@@ -1,0 +1,1 @@
+import{u as i}from"./q-BGn6y-sR.js";import{b as p}from"./q-BGn6y-sR.js";const t=function(){const[o,e,r]=i();if(e._index!==void 0)o.slideRefsArray.value[e._index]=r;else throw new Error("Qwik UI: Carousel Slide cannot find its proper index.")};export{p as _hW,t as s_JWzIbl5Csv8};

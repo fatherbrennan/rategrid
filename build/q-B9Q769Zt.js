@@ -1,0 +1,1 @@
+import{b as f}from"./q-BGn6y-sR.js";const n=(o,t)=>{if(!o)return!1;const e=o.getBoundingClientRect(),r=e.left>t.clientX||e.right<t.clientX||e.top>t.clientY||e.bottom<t.clientY;return t.pointerId===-1?!1:r};export{f as _hW,n as s_HLXTxIOcuHs};

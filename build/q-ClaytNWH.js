@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";const r=()=>{const[e]=o();if(!(!(e!=null&&e.context)||!(e!=null&&e.givenContextRef))){for(const n in e.context)if(e.context[n]===e.givenContextRef)return n}};export{r as s_VO3d3an25U0};

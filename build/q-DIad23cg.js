@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as p}from"./q-BGn6y-sR.js";const c=async function({track:e}){const[o,i,a]=s();e(()=>i.value),o.value||await(a==null?void 0:a(i.value))};export{p as _hW,c as s_Ky5vbP6R3DA};

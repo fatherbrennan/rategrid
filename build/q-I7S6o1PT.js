@@ -1,0 +1,1 @@
+import{u as r}from"./q-BGn6y-sR.js";import{b as i}from"./q-BGn6y-sR.js";const o=async e=>{const[a]=r();switch(e.key){case"ArrowDown":await a("next");break;case"ArrowUp":await a("prev");break;case"Home":await a("first");break;case"End":await a("last");break}};export{i as _hW,o as s_G8mr4g4zIlM};

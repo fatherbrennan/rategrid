@@ -1,0 +1,1 @@
+import{_ as i}from"./q-A-kmwYN-.js";import{s as o,D as n,q as u,_ as m,F as v}from"./q-BGn6y-sR.js";const p=({isPending:s,delay:r=100,onPreDelay:t=m(v,null,3,"tm_0"),onPending:a,onResolved:l})=>{const _=o(),e=o(!0);return n(u(()=>i(()=>import("./q-ykptkVKM.js"),[]),"s_BNRcTeSTi3s",[r,e,s,_])),s.value?e.value?t:a:l};export{p as s_s5v00Crl9AQ};

@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as u}from"./q-BGn6y-sR.js";const n=()=>{const[e,i,o,l]=s();i.value||l._index!==void 0&&(e.isMouseOverPopupSig.value||e.mode==="inline")&&(e.highlightedIndexSig.value=o.value)};export{u as _hW,n as s_djIcIIYlyDg};

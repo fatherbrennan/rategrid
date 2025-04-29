@@ -1,0 +1,1 @@
+import{u as l}from"./q-BGn6y-sR.js";import{b as u}from"./q-BGn6y-sR.js";const s=r=>{const[e,i,t]=l();e.scrollerRef.value&&(t.value&&(i.value=getComputedStyle(e.scrollerRef.value).transition,t.value=!1),e.scrollerRef.value.style.transition=r?i.value??"revert":"none")};export{u as _hW,s as s_is0yi7vq0A4};

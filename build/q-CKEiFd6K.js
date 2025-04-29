@@ -1,1 +1,0 @@
-import{_ as e}from"./q-DkOvt7MH.js";const l=()=>e("header",null,{class:"min-h-header max-h-header bg-paper-0 sticky top-0 z-50 flex flex-row items-center justify-center"},e("h1",null,{class:"underline"},"rategrid",3,null),3,"kW_0");export{l as s_L3aurCVYL6k};

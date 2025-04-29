@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as n}from"./q-BGn6y-sR.js";const i=async e=>{const[a,t,o]=s();o.value=e.matches,e.matches&&(a.isAutoplaySig.value=!1,clearInterval(t.value))};export{n as _hW,i as s_qf99A0qmvOg};

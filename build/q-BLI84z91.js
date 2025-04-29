@@ -1,0 +1,1 @@
+import{u as i}from"./q-BGn6y-sR.js";import{b as u}from"./q-BGn6y-sR.js";const p=e=>{var s;const[t]=i();let o=1;const r=t.itemsMapSig.value.size;if(!t.loop&&e-1<0)return e;for(;o<=r;){const a=(e-o+r)%r;if(!((s=t.itemsMapSig.value.get(a))!=null&&s.disabled))return a;if(o++,!t.loop&&e-o<0)break}return e};export{u as _hW,p as s_iYtaq0UGPzA};

@@ -1,0 +1,1 @@
+import{u as l}from"./q-BGn6y-sR.js";const o=()=>{const[t,n]=l();if(!n.value)return"";const e=t.highlightedIndexSig.value??-1,i=t.itemsMapSig.value.get(e);return e===null||e===-1||i!=null&&i.disabled?"":`${t.localId}-${e}`};export{o as s_dUelEcIPrr8};

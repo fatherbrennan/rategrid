@@ -1,0 +1,1 @@
+import{u as t}from"./q-BGn6y-sR.js";import{b as p}from"./q-BGn6y-sR.js";const s=function(){const[o,r,e]=t();if(e._index!==void 0)r.bulletRefsArray.value[e._index]=o;else throw new Error("Qwik UI: Carousel Bullet cannot find its proper index.")};export{p as _hW,s as s_B8b6KXWeUxg};

@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as r}from"./q-BGn6y-sR.js";const u=(t,o,a)=>{const[e]=s();e.state.value=o,e.delayDuration>0?a.value=window.setTimeout(()=>{e.state.value=t?"open":"closed"},e.delayDuration):e.state.value=t?"open":"closed"};export{r as _hW,u as s_iCrY92zcOWk};

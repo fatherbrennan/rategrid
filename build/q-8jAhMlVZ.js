@@ -1,0 +1,1 @@
+import{u}from"./q-BGn6y-sR.js";import{b as p}from"./q-BGn6y-sR.js";const c=t=>{const[e,s,l]=u();if(t.key==="Backspace"){if(!e.multiple||e.selectedValuesSig.value.length===0||!e.removeOnBackspace)return;if((l.value||s.value)&&e.inputValueSig.value.length===0){const a=[...e.selectedValuesSig.value];a.pop(),e.selectedValuesSig.value=a}}};export{p as _hW,c as s_fO7i6Qx5y1M};

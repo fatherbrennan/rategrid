@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";const t=()=>{const[a,e,r]=o();if(r.value==null)return"indeterminate";const n=a.value-e.value;return(r.value-e.value)/n>=1?"complete":"loading"};export{t as s_8skW7v0G6r4};

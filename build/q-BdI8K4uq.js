@@ -1,1 +1,0 @@
-import{g as a,_hW as t}from"./q-DkOvt7MH.js";const n=()=>{const[e]=a();return e("")},r=Object.freeze(Object.defineProperty({__proto__:null,_hW:t,s_wwNNT2WgxSA:n},Symbol.toStringTag,{value:"Module"})),u=e=>{const[s]=a();return s(e)},g=e=>{const[s,o]=a();o.value=e,s&&s(o.value)};export{t as _hW,g as a,u as s,n as s_wwNNT2WgxSA,r as u};

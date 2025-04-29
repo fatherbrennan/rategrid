@@ -1,0 +1,1 @@
+import{u as c}from"./q-BGn6y-sR.js";import{b as r}from"./q-BGn6y-sR.js";const u=function({track:n}){var a;const[e,o]=c();n(()=>o.value),(a=e.onChange$)==null||a.call(e,o.value)};export{r as _hW,u as s_5ES9cnzGj24};

@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";import{b as r}from"./q-BGn6y-sR.js";const n=({track:a})=>{const[i,u,l,e]=o();a(()=>l.value),e.value!==void 0&&(clearTimeout(e.value),e.value=void 0),u.value=!0,e.value=Number(setTimeout(()=>{clearTimeout(e.value),e.value=void 0,u.value=!1},i))};export{r as _hW,n as s_BNRcTeSTi3s};

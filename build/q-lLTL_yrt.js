@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";const u=()=>{var t;const[r,i,e]=o();if(!e.disabled)return r.highlightedIndexSig.value===e._index?((t=i.value)==null||t.focus({preventScroll:!0}),!0):!1};export{u as s_47t3eG4QhDM};

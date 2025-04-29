@@ -1,0 +1,1 @@
+import{u as s}from"./q-BGn6y-sR.js";import{b as n}from"./q-BGn6y-sR.js";const i=async t=>{const[u,o,e,r]=s();if(e.debounced++,e.isDebouncing=!0,e.debounced>=r){o(t);return}clearTimeout(e.timeoutId),e.timeoutId=Number(setTimeout(()=>o(t),u))};export{n as _hW,i as s_xfzaIzsu7tg};

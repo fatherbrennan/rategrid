@@ -1,0 +1,1 @@
+import{u as o}from"./q-BGn6y-sR.js";import{b as l}from"./q-BGn6y-sR.js";const i=async()=>{const[e]=o();e.isOpenSig.value&&e.collapsible===!1||(e.isOpenSig.value=!e.isOpenSig.value)};export{l as _hW,i as s_31b6Hop0dio};
