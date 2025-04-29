@@ -23,8 +23,3 @@ export type TvSeriesDictionary = Record<ImdbSearchItem[typeof TvData.tconst], Im
 
 // Needed for better typing.
 export type MiniSearchSearchResult = SearchResult & Pick<ImdbSearchItem, typeof TvData.tconst>;
-
-export type Breadcrumb = {
-  label: string;
-  href: string;
-};
