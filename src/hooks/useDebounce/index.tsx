@@ -2,7 +2,7 @@ import { $, implicit$FirstArg, useStore } from '@builder.io/qwik';
 
 import type { QRL } from '@builder.io/qwik';
 
-export type UseDebounceFn<T> = QRL<(args: T) => void>;
+export type UseDebounceFn<T> = QRL<(args?: T) => void>;
 
 export interface UseDebounceOptions {
   /**
